@@ -14,7 +14,7 @@ class SignUp extends React.Component {
 
   render(){
     return(
-      <div style={{marginLeft: '35%', marginRight:'35%', marginTop: '13%'}}>
+      <div style={{marginLeft: '35%', marginRight:'35%', marginTop: '16%'}}>
         <div class="ui middle aligned center aligned grid">
           <div class="column">
             <h2 class="ui black image header">
@@ -28,18 +28,6 @@ class SignUp extends React.Component {
                   <div class="ui left icon input">
                     <i class="user icon"></i>
                     <input type="text" placeholder="Username"/>
-                  </div>
-                </div>
-                <div class="field">
-                  <div class="ui left icon input">
-                    <i class="lock icon"></i>
-                    <input type="password" name="password" placeholder="Password"/>
-                  </div>
-                </div>
-                <div class="field">
-                  <div class="ui left icon input">
-                    <i class="lock icon"></i>
-                    <input type="password" name="password" placeholder="Confirm Password"/>
                   </div>
                 </div>
                 <div class="ui fluid large black submit button">Register</div>

@@ -20,7 +20,7 @@ class Login extends React.Component {
 
   render(){
     return(
-      <div style={{marginLeft: '35%', marginRight:'35%', marginTop: '13%'}}>
+      <div style={{marginLeft: '35%', marginRight:'35%', marginTop: '16%'}}>
         <div class="ui middle aligned center aligned grid">
           <div class="column">
             <h2 class="ui black image header">
@@ -36,12 +36,6 @@ class Login extends React.Component {
                     <input type="text" name="email" placeholder="Username"/>
                   </div>
                 </div>
-                <div class="field">
-                  <div class="ui left icon input">
-                    <i class="lock icon"></i>
-                    <input type="password" name="password" placeholder="Password"/>
-                  </div>
-                </div>
                 <div class="ui fluid large black submit button">Login</div>
               </div>
               <div class="ui error message"></div>
@@ -52,7 +46,12 @@ class Login extends React.Component {
             </div>
           </div>
         </div>
-        <div class="ui fluid large black submit button" style={{marginTop: '3%'}} onClick={this.onHomeClick}>Go Back Home</div>
+        <div class="ui fluid large black submit button"
+          style={{marginTop: '3%'}}
+          onClick={this.onHomeClick}
+        >
+          Go Back Home
+        </div>
       </div>
     );
   }
