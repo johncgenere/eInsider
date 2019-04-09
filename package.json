@@ -11,7 +11,8 @@
     "react-scripts": "2.1.8"
   },
   "scripts": {
-    "start": "screen nodemon server/app.js; screen react-scripts start",
+    "start": "react-scripts start",
+    "backend": "nodemon server/app.js",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
