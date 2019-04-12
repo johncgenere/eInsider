@@ -4,7 +4,8 @@ import Home from './Home';
 import Fantasy from './Fantasy';
 import Profile from './Profile';
 import Login from './Login';
-import SignUp from './SignUp'
+import SignUp from './SignUp';
+import PointSystem from './PointSystem';
 
 class App extends Component {
   render() {
@@ -39,6 +40,12 @@ class App extends Component {
             <Route path="/signup" exact render = {
               () => {
                 return (<SignUp />);
+              }
+            }/>
+
+            <Route path="/pointsystem" exact render = {
+              () => {
+                return (<PointSystem />);
               }
             }/>
           </div>

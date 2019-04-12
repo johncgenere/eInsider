@@ -6,6 +6,7 @@ class Home extends React.Component {
 
     this.onHomeClick = this.onHomeClick.bind(this);
     this.onProfileClick = this.onProfileClick.bind(this);
+    this.onPointSystemClick = this.onPointSystemClick.bind(this);
   }
 
   onHomeClick = (event) => {
@@ -16,6 +17,11 @@ class Home extends React.Component {
   onProfileClick = (event) => {
     console.log('Go to profile');
     window.location.replace('/profile');
+  }
+
+  onPointSystemClick = (event) => {
+    console.log('Show me');
+    window.location.replace('./pointsystem');
   }
 
   render(){
@@ -34,6 +40,7 @@ class Home extends React.Component {
               <div class="ui grid" style={{width: '69%', marginLeft: '25%'}}>
                   <div class="twelve wide stretched column" style={{width: '100%'}}>
                       <div class="ui segment">
+                          <button className="ui button" onClick={this.onPointSystemClick}>How Does This Work?</button>
                           <h1>Fantasy Home</h1>
                           <div class="ui placeholder">
                               <div class="paragraph">

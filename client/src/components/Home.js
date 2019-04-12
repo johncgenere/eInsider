@@ -1,5 +1,7 @@
  import React from 'react';
 
+ let session = true;
+
  class Home extends React.Component {
    constructor(props){
      super(props);
@@ -7,6 +9,9 @@
      this.onFantasyClick = this.onFantasyClick.bind(this);
      this.onProfileClick = this.onProfileClick.bind(this);
      this.onLoginClick = this.onLoginClick.bind(this);
+     this.onLogoutClick = this.onLogoutClick.bind(this);
+
+    //  this.state 
    }
 
    onFantasyClick = (event) => {
@@ -24,7 +29,19 @@
      window.location.replace('/login');
    }
 
+   onLogoutClick = (event) => {
+     session = false;
+     this.forceUpdate();
+   }
+
+   checkIfInSession = () => {
+     if(session)
+       return true;
+     return false;
+   }
+
    render(){
+     if(this.checkIfInSession()){
        return (
            <div>
                <h1 style={{textAlign: 'center', marginTop: '3%'}}>eInsider</h1>
@@ -33,7 +50,7 @@
                    <a className="item" onClick={this.onFantasyClick}>Fantasy</a>
                    <a className="item" onClick={this.onProfileClick}>Profile</a>
                    <div className="right menu">
-                       <a className="ui item" onClick={this.onLoginClick}>Login</a>
+                       <a className="ui item" onClick={this.onLogoutClick}>Logout</a>
                    </div>
                </div>
 
@@ -85,6 +102,66 @@
                </div>
            </div>
        );
+     } else {
+         return (
+             <div>
+                 <h1 style={{textAlign: 'center', marginTop: '3%'}}>eInsider</h1>
+                 <div className="ui secondary  menu" style={{width: '50%', marginLeft: '26%'}}>
+                     <a className="item active">Home</a>
+                     <div className="right menu">
+                         <a className="ui item" onClick={this.onLoginClick}>Login</a>
+                     </div>
+                 </div>
+
+                 <div class="ui grid" style={{width: '50%', marginLeft: '25%'}}>
+                     <div class="twelve wide stretched column">
+                         <div class="ui segment">
+                             <h1>Scores</h1>
+                             <div class="ui placeholder">
+                                 <div class="paragraph">
+                                     <div class="line"></div>
+                                     <div class="line"></div>
+                                     <div class="line"></div>
+                                     <div class="line"></div>
+                                     <div class="line"></div>
+                                 </div>
+                                 <div class="paragraph">
+                                     <div class="line"></div>
+                                     <div class="line"></div>
+                                     <div class="line"></div>
+                                 </div>
+                             </div>
+                             <h1>Schedule</h1>
+                             <div class="ui placeholder">
+                                 <div class="paragraph">
+                                     <div class="line"></div>
+                                     <div class="line"></div>
+                                     <div class="line"></div>
+                                     <div class="line"></div>
+                                     <div class="line"></div>
+                                 </div>
+                                 <div class="paragraph">
+                                     <div class="line"></div>
+                                     <div class="line"></div>
+                                     <div class="line"></div>
+                                 </div>
+                             </div>
+                         </div>
+                     </div>
+                     <div class="four wide column">
+                         <div class="ui vertical fluid right tabular menu">
+                             <a class="active item" style={{width: '150px'}}>LoL</a>
+                             <a class="item" style={{width: '150px'}}>Dota 2</a>
+                             <a class="item" style={{width: '150px'}}>Overwatch</a>
+                             <a class="item" style={{width: '150px'}}>CSGO</a>
+                             <a class="item" style={{width: '150px'}}>Call of Duty</a>
+                             <a class="item" style={{width: '150px'}}>Quake</a>
+                         </div>
+                     </div>
+                 </div>
+             </div>
+         );
+     }
    }
  }
 
