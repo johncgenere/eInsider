@@ -6,8 +6,13 @@ const setup = () => {
   
   const router = express.Router();
 
-  // Attaches middleware to route
-  router.get('/', controller);
+  // Sub routes for different games
+  router.get('/lol', controller.lol);
+  router.get('/dota2', controller.dota2);
+  router.get('/overwatch', controller.overwatch);
+  router.get('/csgo', controller.csgo);
+  router.get('/callofduty', controller.callofduty);
+  router.get('/quake', controller.quake);
 
   return router;
 }
