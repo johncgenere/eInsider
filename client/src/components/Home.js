@@ -10,8 +10,12 @@
      this.onProfileClick = this.onProfileClick.bind(this);
      this.onLoginClick = this.onLoginClick.bind(this);
      this.onLogoutClick = this.onLogoutClick.bind(this);
+     this.onLoLClick = this.onLoLClick.bind(this);
+     this.onOverwatchClick = this.onOverwatchClick.bind(this);
+     this.onDotaClick = this.onDotaClick.bind(this);
+     this.onCSGOClick = this.onCSGOClick.bind(this);
 
-    //  this.state 
+    //  this.state
    }
 
    onFantasyClick = (event) => {
@@ -38,6 +42,26 @@
      if(session)
        return true;
      return false;
+   }
+
+   onLoLClick = (event) => {
+     console.log('league');
+     window.location.replace('/leagueoflegends');
+   }
+
+   onOverwatchClick = (event) => {
+     console.log('overwatch');
+     window.location.replace('/overwatch');
+   }
+
+   onDotaClick = (event) => {
+     console.log('dota2');
+     window.location.replace('/dota2');
+   }
+
+   onCSGOClick = (event) => {
+     console.log('csgo');
+     window.location.replace('/csgo');
    }
 
    render(){
