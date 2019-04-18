@@ -78,52 +78,18 @@
                    </div>
                </div>
 
-               <div class="ui grid" style={{width: '50%', marginLeft: '25%'}}>
-                   <div class="twelve wide stretched column">
-                       <div class="ui segment">
-                           <h1>Scores</h1>
-                           <div class="ui placeholder">
-                               <div class="paragraph">
-                                   <div class="line"></div>
-                                   <div class="line"></div>
-                                   <div class="line"></div>
-                                   <div class="line"></div>
-                                   <div class="line"></div>
-                               </div>
-                               <div class="paragraph">
-                                   <div class="line"></div>
-                                   <div class="line"></div>
-                                   <div class="line"></div>
-                               </div>
-                           </div>
-                           <h1>Schedule</h1>
-                           <div class="ui placeholder">
-                               <div class="paragraph">
-                                   <div class="line"></div>
-                                   <div class="line"></div>
-                                   <div class="line"></div>
-                                   <div class="line"></div>
-                                   <div class="line"></div>
-                               </div>
-                               <div class="paragraph">
-                                   <div class="line"></div>
-                                   <div class="line"></div>
-                                   <div class="line"></div>
-                               </div>
-                           </div>
-                       </div>
-                   </div>
-                   <div class="four wide column">
-                       <div class="ui vertical fluid right tabular menu">
-                           <a class="active item" style={{width: '150px'}}>LoL<i class="star icon" style={{color: 'yellow'}}></i></a>
-                           <a class="item" style={{width: '150px'}}>Dota 2 <i class="star icon" style={{color: 'yellow'}}></i></a>
-                           <a class="item" style={{width: '150px'}}>Overwatch<i class="star outline icon" style={{color: 'yellow'}}></i></a>
-                           <a class="item" style={{width: '150px'}}>CSGO<i class="star outline icon" style={{color: 'yellow'}}></i></a>
-                           <a class="item" style={{width: '150px'}}>Call of Duty<i class="star outline icon" style={{color: 'yellow'}}></i></a>
-                           <a class="item" style={{width: '150px'}}>Quake<i class="star outline icon" style={{color: 'yellow'}}></i></a>
-                       </div>
-                   </div>
+               <div>
+                  <h3 style={{marginTop: '3%', textAlign: 'center'}}> Schedule for Future Tournaments </h3>
+                  <div className="ui divider" style={{marginLeft: '26%', marginRight: '25%'}}></div>
+                  <p style={{textAlign: 'center'}}> API CALLS HERE FOR SCHEDULE </p>
                </div>
+
+              <div className="ui medium images" style={{marginLeft: '26.5%', marginRight: '15%', marginTop: '3%', }}>
+                <img src="https://hdqwalls.com/download/overwatch-game-all-heroes-1600x900.jpg" onClick={this.onOverwatchClick} style={{borderRadius: '10px'}} />
+                <img src="http://eskipaper.com/images/league-of-legends-wallpaper-8.jpg" onClick={this.onLoLClick} style={{borderRadius: '10px'}} />
+                <img src="https://images4.alphacoders.com/210/210396.jpg" onClick={this.onDotaClick} style={{borderRadius: '10px'}} />
+                <img src="https://webgameapp.com/web/wallpapers/csgo-wallpapers/1600x900.jpg" onClick={this.onCSGOClick} style={{borderRadius: '10px'}} />
+              </div>
            </div>
        );
      } else {
@@ -137,52 +103,18 @@
                      </div>
                  </div>
 
-                 <div class="ui grid" style={{width: '50%', marginLeft: '25%'}}>
-                     <div class="twelve wide stretched column">
-                         <div class="ui segment">
-                             <h1>Scores</h1>
-                             <div class="ui placeholder">
-                                 <div class="paragraph">
-                                     <div class="line"></div>
-                                     <div class="line"></div>
-                                     <div class="line"></div>
-                                     <div class="line"></div>
-                                     <div class="line"></div>
-                                 </div>
-                                 <div class="paragraph">
-                                     <div class="line"></div>
-                                     <div class="line"></div>
-                                     <div class="line"></div>
-                                 </div>
-                             </div>
-                             <h1>Schedule</h1>
-                             <div class="ui placeholder">
-                                 <div class="paragraph">
-                                     <div class="line"></div>
-                                     <div class="line"></div>
-                                     <div class="line"></div>
-                                     <div class="line"></div>
-                                     <div class="line"></div>
-                                 </div>
-                                 <div class="paragraph">
-                                     <div class="line"></div>
-                                     <div class="line"></div>
-                                     <div class="line"></div>
-                                 </div>
-                             </div>
-                         </div>
-                     </div>
-                     <div class="four wide column">
-                         <div class="ui vertical fluid right tabular menu">
-                             <a class="active item" style={{width: '150px'}}>LoL</a>
-                             <a class="item" style={{width: '150px'}}>Dota 2</a>
-                             <a class="item" style={{width: '150px'}}>Overwatch</a>
-                             <a class="item" style={{width: '150px'}}>CSGO</a>
-                             <a class="item" style={{width: '150px'}}>Call of Duty</a>
-                             <a class="item" style={{width: '150px'}}>Quake</a>
-                         </div>
-                     </div>
+                 <div>
+                    <h3 style={{marginTop: '3%', textAlign: 'center'}}> Schedule for Future Tournaments </h3>
+                    <div className="ui divider" style={{marginLeft: '26%', marginRight: '25%'}}></div>
+                    <p style={{textAlign: 'center'}}> API CALLS HERE FOR SCHEDULE </p>
                  </div>
+
+                <div className="ui medium images" style={{marginLeft: '26.5%', marginRight: '15%', marginTop: '3%', }}>
+                  <img src="https://hdqwalls.com/download/overwatch-game-all-heroes-1600x900.jpg" onClick={this.onOverwatchClick} style={{borderRadius: '10px'}} />
+                  <img src="http://eskipaper.com/images/league-of-legends-wallpaper-8.jpg" onClick={this.onLoLClick} style={{borderRadius: '10px'}} />
+                  <img src="https://images4.alphacoders.com/210/210396.jpg" onClick={this.onDotaClick} style={{borderRadius: '10px'}} />
+                  <img src="https://webgameapp.com/web/wallpapers/csgo-wallpapers/1600x900.jpg" onClick={this.onCSGOClick} style={{borderRadius: '10px'}} />
+                </div>
              </div>
          );
      }
