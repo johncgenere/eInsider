@@ -6,6 +6,7 @@
    constructor(props){
      super(props);
 
+     this.onFavoritesClick = this.onFavoritesClick.bind(this);
      this.onFantasyClick = this.onFantasyClick.bind(this);
      this.onProfileClick = this.onProfileClick.bind(this);
      this.onLoginClick = this.onLoginClick.bind(this);
@@ -16,6 +17,11 @@
      this.onCSGOClick = this.onCSGOClick.bind(this);
 
     //  this.state
+   }
+
+   onFavoritesClick = (event) => {
+     console.log('my faves');
+     window.location.replace('/favorites');
    }
 
    onFantasyClick = (event) => {
@@ -71,6 +77,7 @@
                <h1 style={{textAlign: 'center', marginTop: '3%'}}>eInsider</h1>
                <div className="ui secondary  menu" style={{width: '50%', marginLeft: '26%'}}>
                    <a className="item active">Home</a>
+                   <a className="item" onClick={this.onFavoritesClick}>Favorites</a>
                    <a className="item" onClick={this.onFantasyClick}>Fantasy</a>
                    <a className="item" onClick={this.onProfileClick}>Profile</a>
                    <div className="right menu">

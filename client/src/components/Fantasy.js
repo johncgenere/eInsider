@@ -7,11 +7,17 @@ class Home extends React.Component {
     this.onHomeClick = this.onHomeClick.bind(this);
     this.onProfileClick = this.onProfileClick.bind(this);
     this.onPointSystemClick = this.onPointSystemClick.bind(this);
+    this.onFavoritesClick = this.onFavoritesClick.bind(this);
   }
 
   onHomeClick = (event) => {
     console.log('Go home!');
     window.location.replace('/');
+  }
+
+  onFavoritesClick = (event) => {
+    console.log('my faves');
+    window.location.replace('/favorites');
   }
 
   onProfileClick = (event) => {
@@ -30,6 +36,7 @@ class Home extends React.Component {
               <h1 style={{textAlign: 'center', marginTop: '3%'}}>eInsider</h1>
               <div className="ui secondary  menu" style={{width: '50%', marginLeft: '26%'}}>
                   <a className="item" onClick={this.onHomeClick}>Home</a>
+                  <a className="item" onClick={this.onFavoritesClick}>Favorites</a>
                   <a className="item active">Fantasy</a>
                   <a className="item" onClick={this.onProfileClick}>Profile</a>
                   <div className="right menu">

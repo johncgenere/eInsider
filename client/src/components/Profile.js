@@ -5,13 +5,18 @@ class Profile extends React.Component {
     super(props);
 
     this.onHomeClick = this.onHomeClick.bind(this);
+    this.onFavoritesClick = this.onFavoritesClick.bind(this);
     this.onFantasyClick = this.onFantasyClick.bind(this);
   }
-
 
   onHomeClick = (event) => {
     console.log('Go home!');
     window.location.replace('/');
+  }
+
+  onFavoritesClick = (event) => {
+    console.log('my faves');
+    window.location.replace('/favorites');
   }
 
   onFantasyClick = (event) => {
@@ -23,12 +28,13 @@ class Profile extends React.Component {
     return (
             <div>
                 <h1 style={{textAlign: 'center', marginTop: '3%'}}>eInsider</h1>
-                <div class="ui secondary  menu" style={{width: '50%', marginLeft: '26%'}}>
-                    <a class="item" onClick={this.onHomeClick}>Home</a>
-                    <a class="item" onClick={this.onFantasyClick}>Fantasy</a>
-                    <a class="item active">Profile</a>
-                    <div class="right menu">
-                        <a class="ui item" onClick={this.onHomeClick}>Logout</a>
+                <div className="ui secondary  menu" style={{width: '50%', marginLeft: '26%'}}>
+                    <a className="item" onClick={this.onHomeClick}>Home</a>
+                    <a className="item" onClick={this.onFavoritesClick}>Favorites</a>
+                    <a className="item" onClick={this.onFantasyClick}>Fantasy</a>
+                    <a className="item active">Profile</a>
+                    <div className="right menu">
+                        <a className="ui item" onClick={this.onHomeClick}>Logout</a>
                     </div>
                 </div>
 

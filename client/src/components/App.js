@@ -5,6 +5,7 @@ import Fantasy from './Fantasy';
 import Profile from './Profile';
 import Login from './Login';
 import SignUp from './SignUp';
+import Favorites from './Favorites';
 import PointSystem from './PointSystem';
 import LoL from './LoL';
 import Dota from './Dota';
@@ -20,6 +21,12 @@ class App extends Component {
             <Route path ="/" exact render = {
               () => {
                 return (<Home />);
+              }
+            }/>
+
+            <Route path ="/favorites" exact render = {
+              () => {
+                return (<Favorites />);
               }
             }/>
 
