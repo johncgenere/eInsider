@@ -38,46 +38,16 @@ class Profile extends React.Component {
                     </div>
                 </div>
 
-                <div class="ui grid" style={{width: '50%', marginLeft: '25%'}}>
-                    <div class="twelve wide stretched column">
-                        <div class="ui segment">
-                            <h1>Leagues You Are In</h1>
-                            <div class="ui placeholder">
-                                <div class="paragraph">
-                                    <div class="line"></div>
-                                    <div class="line"></div>
-                                    <div class="line"></div>
-                                    <div class="line"></div>
-                                    <div class="line"></div>
-                                </div>
-                                <div class="paragraph">
-                                    <div class="line"></div>
-                                    <div class="line"></div>
-                                    <div class="line"></div>
-                                </div>
-                            </div>
-                            <div class="ui placeholder">
-                                <div class="paragraph">
-                                    <div class="line"></div>
-                                    <div class="line"></div>
-                                    <div class="line"></div>
-                                    <div class="line"></div>
-                                    <div class="line"></div>
-                                </div>
-                                <div class="paragraph">
-                                    <div class="line"></div>
-                                    <div class="line"></div>
-                                    <div class="line"></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="four wide column">
-                        <div class="ui vertical fluid right tabular menu">
-                            <a class="item" style={{width: '150px'}}>Favorites</a>
-                            <a class="active item" style={{width: '150px'}}>Fantasy Leages</a>
-                        </div>
-                    </div>
+                <div>
+                  <h3 style={{marginTop: '3%', textAlign: 'center'}}> Your Information </h3>
+                  <div className="ui divider" style={{marginLeft: '26%', marginRight: '25%'}}></div>
+                  <p style={{textAlign: 'center'}}> API CALLS HERE FOR USER INFO </p>
+                </div>
+
+                <div>
+                   <h3 style={{marginTop: '3%', textAlign: 'center'}}> Your Favorites </h3>
+                   <div className="ui divider" style={{marginLeft: '26%', marginRight: '25%'}}></div>
+                   <p style={{textAlign: 'center'}}> API CALLS HERE FOR FAVORITES </p>
                 </div>
             </div>
         );

@@ -42,6 +42,12 @@ class Favorites extends React.Component {
                 <a className="ui item" >Logout</a>
             </div>
         </div>
+
+        <div>
+          <h3 style={{marginTop: '3%', textAlign: 'center'}}> Your Favorites </h3>
+          <div className="ui divider" style={{marginLeft: '26%', marginRight: '25%'}}></div>
+          <p style={{textAlign: 'center'}}> API CALLS HERE FOR FAVORITES </p>
+        </div>
       </div>
     );
   }
