@@ -36,9 +36,9 @@ class Home extends React.Component {
               <h1 style={{textAlign: 'center', marginTop: '3%'}}>eInsider</h1>
               <div className="ui secondary  menu" style={{width: '50%', marginLeft: '26%'}}>
                   <a className="item" onClick={this.onHomeClick} href="/">Home</a>
-                  <a className="item" onClick={this.onFavoritesClick} href="/">Favorites</a>
+                  <a className="item" onClick={this.onFavoritesClick} href="/favorites">Favorites</a>
                   <a className="item active" href="/">Fantasy</a>
-                  <a className="item" onClick={this.onProfileClick} href="/">Profile</a>
+                  <a className="item" onClick={this.onProfileClick} href="/profile">Profile</a>
                   <div className="right menu">
                       <a className="ui item" onClick={this.onHomeClick} href="/">Logout</a>
                   </div>

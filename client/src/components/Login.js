@@ -42,7 +42,7 @@ class Login extends React.Component {
             </form>
 
             <div className="ui message">
-              New to eInsider? <a href="/" onClick={this.onSignUpClick}>Register</a>
+              New to eInsider? <a href="/signup" onClick={this.onSignUpClick}>Register</a>
             </div>
           </div>
         </div>
