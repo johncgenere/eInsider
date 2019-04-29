@@ -19,8 +19,8 @@ class Dota extends React.Component {
         <h3 style={{textAlign: 'center'}}> Image Will Be Here </h3>
         <h1 style={{textAlign: 'center'}}> Dota 2 </h1>
 
-        <div class="ui piled segment" style={{marginLeft: '20%', marginRight: '20%'}}>
-          <h4 class="ui header">Schedule</h4>
+        <div className="ui piled segment" style={{marginLeft: '20%', marginRight: '20%'}}>
+          <h4 className="ui header">Schedule</h4>
           <p>Schedule will be under here</p>
         </div>
       </div>
