@@ -20,11 +20,6 @@ class LoL extends React.Component {
         <h1 style={{textAlign: 'center'}}> League of Legends </h1>
 
         <div class="ui piled segment" style={{marginLeft: '20%', marginRight: '20%'}}>
-          <h4 class="ui header">Scores</h4>
-          <p>Scores will be under here</p>
-        </div>
-
-        <div class="ui piled segment" style={{marginLeft: '20%', marginRight: '20%'}}>
           <h4 class="ui header">Schedule</h4>
           <p>Schedule will be under here</p>
         </div>

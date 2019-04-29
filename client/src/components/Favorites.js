@@ -34,12 +34,12 @@ class Favorites extends React.Component {
       <div>
         <h1 style={{textAlign: 'center', marginTop: '3%'}}>eInsider</h1>
         <div className="ui secondary  menu" style={{width: '50%', marginLeft: '26%'}}>
-            <a className="item" onClick={this.onHomeClick}>Home</a>
-            <a className="item active">Favorites</a>
-            <a className="item" onClick={this.onFantasyClick}>Fantasy</a>
-            <a className="item" onClick={this.onProfileClick}>Profile</a>
+            <a className="item" onClick={this.onHomeClick} href="/">Home</a>
+            <a className="item active" href="/">Favorites</a>
+            <a className="item" onClick={this.onFantasyClick} href="/">Fantasy</a>
+            <a className="item" onClick={this.onProfileClick} href="/">Profile</a>
             <div className="right menu">
-                <a className="ui item" >Logout</a>
+                <a className="ui item" href="/">Logout</a>
             </div>
         </div>
 

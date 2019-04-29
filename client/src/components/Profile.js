@@ -29,12 +29,12 @@ class Profile extends React.Component {
             <div>
                 <h1 style={{textAlign: 'center', marginTop: '3%'}}>eInsider</h1>
                 <div className="ui secondary  menu" style={{width: '50%', marginLeft: '26%'}}>
-                    <a className="item" onClick={this.onHomeClick}>Home</a>
-                    <a className="item" onClick={this.onFavoritesClick}>Favorites</a>
-                    <a className="item" onClick={this.onFantasyClick}>Fantasy</a>
-                    <a className="item active">Profile</a>
+                    <a className="item" onClick={this.onHomeClick} href="/">Home</a>
+                    <a className="item" onClick={this.onFavoritesClick} href="/">Favorites</a>
+                    <a className="item" onClick={this.onFantasyClick} href="/">Fantasy</a>
+                    <a className="item active" href="/">Profile</a>
                     <div className="right menu">
-                        <a className="ui item" onClick={this.onHomeClick}>Logout</a>
+                        <a className="ui item" onClick={this.onHomeClick} href="/">Logout</a>
                     </div>
                 </div>
 
