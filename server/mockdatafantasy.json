@@ -1,14 +1,74 @@
-{
-  "x0": 0,
-  "x1": 1,
-  "x2": 2,
-  "x3": 3,
-  "x4": 4,
-  "x5": 5,
-  "x6": 6,
-  "x7": 7,
-  "x8": 8,
-  "x9": 9,
-  "x10": 10,
-  "x11": 11
-}
+[
+  {
+    "Player_Name": "dev1ce",
+    "Game": "CS:GO",
+    "Team": "Astralis", 
+    "Score": "14"
+  }, 
+  {
+    "Player_Name": "FalleN",
+    "Game": "CS:GO",
+    "Team": "MIBR", 
+    "Score": "8"
+  },
+  {
+    "Player_Name": "Stewie2K",
+    "Game": "CS:GO",
+    "Team": "Team Liquid", 
+    "Score": "9"
+  },
+  {
+    "Player_Name": "ppd",
+    "Game": "Dota2",
+    "Team": "Ninjas in Pyjamas", 
+    "Score": "18"
+  },
+  {
+    "Player_Name": "N0tail",
+    "Game": "Dota2",
+    "Team": "OG", 
+    "Score": "11"
+  },
+  {
+    "Player_Name": "SumaiL",
+    "Game": "Dota2",
+    "Team": "Evil Geniuses", 
+    "Score": "6"
+  },
+  {
+    "Player_Name": "Faker",
+    "Game": "LoL",
+    "Team": "SK Telecom T1", 
+    "Score": "19"
+  },
+  {
+    "Player_Name": "aphromoo",
+    "Game": "LoL",
+    "Team": "100 Thieves", 
+    "Score": "13"
+  },
+  {
+    "Player_Name": "Impact",
+    "Game": "LoL",
+    "Team": "Team Liquid", 
+    "Score": "11"
+  },
+  {
+    "Player_Name": "Danteh",
+    "Game": "Overwatch",
+    "Team": "Houston Outlaws", 
+    "Score": "7"
+  },
+  {
+    "Player_Name": "HarryHook",
+    "Game": "Overwatch",
+    "Team": "Dallas Fuel", 
+    "Score": "8"
+  },
+  {
+    "Player_Name": "Saebyeolbe",
+    "Game": "Overwatch",
+    "Team": "New York Excelsior", 
+    "Score": "3"
+  }
+]
