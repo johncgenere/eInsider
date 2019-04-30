@@ -21,8 +21,8 @@ const setup = () => {
         objectData.push({ "Tournament_name": arr['serie'].full_name, "Detailed_name": arr['name'], "League": arr['league'].name, "Starts_at": arr['begin_at'] })
       next();
     })
-    .catch(function(error) {
-      console.log(`Failed to get lol upcoming tournaments\n${error.message}`);
+    .catch(err => {
+      console.log(`Failed to get lol upcoming tournaments\n${err.message}`);
     });
   };
 
