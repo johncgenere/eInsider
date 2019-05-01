@@ -1,7 +1,5 @@
 const request = require('superagent');
-
-//Put this token in a separate file and git ignore it but for now WEEEEE
-const token = 'K-vNqWhG9uYGlPgD-SunEJu9bLZNfw_uOBi_2rGPgIp7b56V5lM';
+const config = require('../../../config.json');
 
 const setup = () => {
 
@@ -14,7 +12,7 @@ const setup = () => {
 
   const getNextUpcomingTournamentLol = (req, res, next) => {
     request
-    .get(`https://api.pandascore.co/lol/tournaments/upcoming?sort=begin_at&token=${token}`)
+    .get(`https://api.pandascore.co/lol/tournaments/upcoming?sort=begin_at&token=${config.token}`)
     .set('Accept', 'application/json')
     .then(res => {
       upcomingTournaments["lol"] = {
@@ -34,7 +32,7 @@ const setup = () => {
 
   const getNextUpcomingTournamentDota2 = (req, res, next) => {
     request
-    .get(`https://api.pandascore.co/dota2/tournaments/upcoming?sort=begin_at&token=${token}`)
+    .get(`https://api.pandascore.co/dota2/tournaments/upcoming?sort=begin_at&token=${config.token}`)
     .set('Accept', 'application/json')
     .then(res => {
       upcomingTournaments["dota2"] = {
@@ -54,7 +52,7 @@ const setup = () => {
 
   const getNextUpcomingTournamentCSGO = (req, res, next) => {
     request
-    .get(`https://api.pandascore.co/csgo/tournaments/upcoming?sort=begin_at&token=${token}`)
+    .get(`https://api.pandascore.co/csgo/tournaments/upcoming?sort=begin_at&token=${config.token}`)
     .set('Accept', 'application/json')
     .then(res => {
       upcomingTournaments["csgo"] = {
@@ -74,7 +72,7 @@ const setup = () => {
 
   const getNextUpcomingTournamentOW = (req, res, next) => {
     request
-    .get(`https://api.pandascore.co/ow/tournaments/upcoming?sort=begin_at&token=${token}`)
+    .get(`https://api.pandascore.co/ow/tournaments/upcoming?sort=begin_at&token=${config.token}`)
     .set('Accept', 'application/json')
     .then(res => {
       upcomingTournaments["ow"] = {

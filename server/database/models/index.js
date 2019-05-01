@@ -5,8 +5,13 @@ const path = require('path');
 const Sequelize = require('sequelize');
 const basename = path.basename(__filename);
 const db = {};
-                                                                                        // Put your own database name
-const url = process.env.NODE_ENV === 'production' ? process.env.DATABASE_URL : 'postgres://postgres@localhost:5432/einsider';
+const config = require('../../../config.json')
+
+/*
+NOTE: Put your own database name under the config.json file. I will find a way to generalize it by tonight. -M.V 
+*/
+
+const url = process.env.NODE_ENV === 'production' ? process.env.DATABASE_URL : `postgres://${config.postgresUsername}@localhost:5432/einsider`;
 const sequelize = new Sequelize(url);
 
 fs.readdirSync(__dirname)

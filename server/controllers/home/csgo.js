@@ -1,7 +1,5 @@
 const request = require('superagent');
-
-//Put this token in a separate file and git ignore it but for now WEEEEE
-const token = 'K-vNqWhG9uYGlPgD-SunEJu9bLZNfw_uOBi_2rGPgIp7b56V5lM';
+const config = require('../../../config.json')
 
 const setup = () => {
 
@@ -14,7 +12,7 @@ const setup = () => {
 
   const getUpcomingTournaments = (req, res, next) => {
     request
-    .get(`https://api.pandascore.co/csgo/tournaments/upcoming?sort=begin_at&token=${token}`)
+    .get(`https://api.pandascore.co/csgo/tournaments/upcoming?sort=begin_at&token=${config.token}`)
     .set('Accept', 'application/json')
     .then(res => {
       res.body.forEach(csgoTournament => {
