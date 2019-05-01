@@ -1,5 +1,4 @@
 import React from 'react';
-import axios from 'axios';
 import logo from '../images/csgolandscape.jpeg';
 import '../styles/Games.css';
 
@@ -10,13 +9,6 @@ class CSGO extends React.Component {
     this.onHomeClick = this.onHomeClick.bind(this);
     this.onFavoriteClick = this.onFavoriteClick.bind(this);
     this.onUnfavoriteClick = this.onUnfavoriteClick.bind(this);
-
-    axios.get('http://localhost:7000/home/csgo')
-    .then(res => {
-       const csgoData = res.data;
-       this.setState({csgoData})
-       //console.log(schedule);
-    })
   }
 
   onHomeClick = (event) => {

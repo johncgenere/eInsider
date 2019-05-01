@@ -2,7 +2,7 @@
  import overwatch from '../images/overwatch.jpg';
  import lol from '../images/lol.jpg';
  import dota from '../images/dota.jpg';
- import csgo from '../images/csgo.jpg';
+ import csgo from '../images/CSGO.jpg';
  import '../styles/Home.css';
 
  let session = true;
