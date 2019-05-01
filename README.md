@@ -1,68 +1,286 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# eInsider
 
-## Available Scripts
+This is eInsider we are a website that provides relevant eSports information on 4 of the most popular games.
 
-In the project directory, you can run:
+# Table of Contents
+- [Backend](#backend)
+  - [API Overview](#api-overview)
+    - [Base](#base)
+    - [Home](#home)
+    - [Fantasy](#fantasy)
+  - [API Details](#api-details)
+    - [Home](#home)
+    - [Fantasy](#fantasy)
 
-### `npm start`
+# Backend
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+# API Overview
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+## Base
 
-### `npm test`
+| endpoint               | description       |
+| ---------------------- | ----------------- |
+| [`[GET] /`](#get-base) | welcoming message |
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Home
 
-### `npm run build`
+| endpoint                              | description                                |
+| ------------------------------------- | ------------------------------------------ |
+| [`[GET] /home`](#get-home)            | 4 upcoming tournaments one for each eSport |
+| [`[GET] /home/lol`](#get-homelol)     | all upcoming tournaments for LoL           |
+| [`[GET] /home/dota2`](#get-homedota2) | all upcoming tournaments for Dota 2        |
+| [`[GET] /home/ow`](#get-homeow)       | all upcoming tournaments for Overwatch     |
+| [`[GET] /home/csgo`](#get-homecsgo)   | all upcoming tournaments for CS:GO         |
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Fantasy
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+| endpoint                         | description                           |
+| -------------------------------- | ------------------------------------- |
+| [`[GET] /fantasy`](#get-fantasy) | data on the players in fantasy league |
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+# API Details
 
-### `npm run eject`
+## Home
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+#### `[GET] /home`
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Returns a json with 4 of the next upcoming tournaments one for each eSport.
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+This is a sample `JSON` object one will receive after the `GET` request:
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+- `game` can only be one of the four strings `League of Legends`, `Dota 2`, `Counter-Strike: Global Offensive`, `Overwatch`
+- `startTime` and `endTime` is in the format yyyy-mm-ddThh:ss:mmZ
+- `leagueName` can be an empty string
+- `serieName` can be an empty string
 
-## Learn More
+```json
+{
+  "lol": {
+    "game": "League of Legends",
+    "tournamentName": "Play-in: group a",
+    "startTime": "2019-05-01T10:00:00Z",
+    "endTime": "2019-05-03T16:00:00Z",
+    "leagueName": "Mid-Season-Invitational",
+    "serieName": ""
+  },
+  "dota2": {
+    "game": "Dota 2",
+    "tournamentName": "Group d",
+    "startTime": "2019-05-03T22:00:00Z",
+    "endTime": "2019-05-13T18:00:00Z",
+    "leagueName": "Mars Dota League",
+    "serieName": "Disneyland Paris Major"
+  },
+  "csgo": {
+    "game": "Counter-Strike: Global Offensive",
+    "tournamentName": "Group b",
+    "startTime": "2019-04-30T04:20:00Z",
+    "endTime": "2019-05-02T12:00:00Z",
+    "leagueName": "IEM",
+    "serieName": "Sydney"
+  },
+  "ow": {
+    "game": "Overwatch",
+    "tournamentName": "Stage 3",
+    "startTime": "2019-06-06T23:00:00Z",
+    "endTime": "2019-07-07T07:00:00Z",
+    "leagueName": "Overwatch League",
+    "serieName": ""
+  }
+}
+```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+#### `[GET] /home/lol`
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Returns an array with all of the upcoming tournaments for LoL.
 
-### Code Splitting
+This is a sample `array` one will receive after the `GET` request:
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+Earliest occuring tournament is first in the array and seconding earlier occuring tournament is second in the array and this pattern continues
 
-### Analyzing the Bundle Size
+The size of the array varies as it depends on how many tournaments are upcoming.
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+- `startTime` and `endTime` is in the format yyyy-mm-ddThh:ss:mmZ
+- `leagueName` can be an empty string
+- `serieName` can be an empty string
 
-### Making a Progressive Web App
+```json
+[
+  {
+    "game": "League of Legends",
+    "tournamentName": "Play-in: group a",
+    "startTime": "2019-05-01T10:00:00Z",
+    "endTime": "2019-05-03T16:00:00Z",
+    "leagueName": "Mid-Season-Invitational",
+    "serieName": ""
+  },
+  {
+    "game": "League of Legends",
+    "tournamentName": "Play-in: group b",
+    "startTime": "2019-05-02T10:00:00Z",
+    "endTime": "2019-05-04T16:00:00Z",
+    "leagueName": "Mid-Season-Invitational",
+    "serieName": ""
+  },
+  {
+    "game": "League of Legends",
+    "tournamentName": "Playoffs",
+    "startTime": "2019-05-04T05:00:00Z",
+    "endTime": "2019-05-11T12:00:00Z",
+    "leagueName": "LDL",
+    "serieName": ""
+  }
+]
+```
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
+#### `[GET] /home/dota2`
 
-### Advanced Configuration
+Returns an array with all of the upcoming tournaments for Dota 2.
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
+This is a sample `array` one will receive after the `GET` request:
 
-### Deployment
+Earliest occuring tournament is first in the array and seconding earlier occuring tournament is second in the array and this pattern continues
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
+The size of the array varies as it depends on how many tournaments are upcoming.
 
-### `npm run build` fails to minify
+- `startTime` and `endTime` is in the format yyyy-mm-ddThh:ss:mmZ
+- `leagueName` can be an empty string
+- `serieName` can be an empty string
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+```json
+[
+  {
+    "game": "Dota 2",
+    "tournamentName": "Group d",
+    "startTime": "2019-05-03T22:00:00Z",
+    "endTime": "2019-05-13T18:00:00Z",
+    "leagueName": "Mars Dota League",
+    "serieName": "Disneyland Paris Major"
+  },
+  {
+    "game": "Dota 2",
+    "tournamentName": "Group c",
+    "startTime": "2019-05-03T22:00:00Z",
+    "endTime": "2019-05-13T18:00:00Z",
+    "leagueName": "Mars Dota League",
+    "serieName": "Disneyland Paris Major"
+  },
+  {
+    "game": "Dota 2",
+    "tournamentName": "Group b",
+    "startTime": "2019-05-03T22:00:00Z",
+    "endTime": "2019-05-13T18:00:00Z",
+    "leagueName": "Mars Dota League",
+    "serieName": "Disneyland Paris Major"
+  }
+]
+```
+
+#### `[GET] /home/ow`
+
+Returns an array with all of the upcoming tournaments for Overwatch.
+
+This is a sample `array` one will receive after the `GET` request:
+
+Earliest occuring tournament is first in the array and seconding earlier occuring tournament is second in the array and this pattern continues
+
+The size of the array varies as it depends on how many tournaments are upcoming.
+
+- `startTime` and `endTime` is in the format yyyy-mm-ddThh:ss:mmZ
+- `leagueName` can be an empty string
+- `serieName` can be an empty string
+
+```json
+[
+  {
+    "game": "Overwatch",
+    "tournamentName": "Stage 3",
+    "startTime": "2019-06-06T23:00:00Z",
+    "endTime": "2019-07-07T07:00:00Z",
+    "leagueName": "Overwatch League",
+    "serieName": ""
+  },
+  {
+    "game": "Overwatch",
+    "tournamentName": "Stage 4",
+    "startTime": "2019-07-25T23:00:00Z",
+    "endTime": "2019-08-25T07:00:00Z",
+    "leagueName": "Overwatch League",
+    "serieName": ""
+  }
+]
+```
+
+#### `[GET] /home/csgo`
+
+Returns an array with all of the upcoming tournaments for CS:GO.
+
+This is a sample `array` one will receive after the `GET` request:
+
+Earliest occuring tournament is first in the array and seconding earlier occuring tournament is second in the array and this pattern continues
+
+The size of the array varies as it depends on how many tournaments are upcoming.
+
+- `startTime` and `endTime` is in the format yyyy-mm-ddThh:ss:mmZ
+- `leagueName` can be an empty string
+- `serieName` can be an empty string
+
+```json
+[
+  {
+    "game": "Counter-Strike: Global Offensive",
+    "tournamentName": "Group b",
+    "startTime": "2019-04-30T04:20:00Z",
+    "endTime": "2019-05-02T12:00:00Z",
+    "leagueName": "IEM",
+    "serieName": "Sydney"
+  },
+  {
+    "game": "Counter-Strike: Global Offensive",
+    "tournamentName": "Playoffs",
+    "startTime": "2019-05-03T05:00:00Z",
+    "endTime": "2019-05-05T10:00:00Z",
+    "leagueName": "IEM",
+    "serieName": "Sydney"
+  },
+  {
+    "game": "Counter-Strike: Global Offensive",
+    "tournamentName": "Play-in finals",
+    "startTime": "2019-05-10T14:15:00Z",
+    "endTime": "2019-05-10T17:15:00Z",
+    "leagueName": "BLAST Pro Series",
+    "serieName": "Madrid"
+  }
+]
+```
+
+## Fantasy
+
+#### `[GET] /fantasy`
+
+Returns an array with 12 mock fantasy players
+
+This is a sample `array` one will receive after the `GET` request:
+
+```json
+[
+  {
+    "playerName": "Faker",
+    "game": "LoL",
+    "team": "SK Telecom T1",
+    "score": "19"
+  },
+  {
+    "playerName": "aphromoo",
+    "game": "LoL",
+    "team": "100 Thieves",
+    "score": "13"
+  },
+  {
+    "playerName": "Impact",
+    "game": "LoL",
+    "team": "Team Liquid",
+    "score": "11"
+  },
+]
+```

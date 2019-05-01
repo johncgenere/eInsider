@@ -1,4 +1,5 @@
 import React from 'react';
+import axios from 'axios';
 
 class Home extends React.Component {
   constructor(props){
@@ -8,6 +9,18 @@ class Home extends React.Component {
     this.onProfileClick = this.onProfileClick.bind(this);
     this.onPointSystemClick = this.onPointSystemClick.bind(this);
     this.onFavoritesClick = this.onFavoritesClick.bind(this);
+
+    this.state = {
+      randomizedScore : []
+    }
+
+    axios.get('http://localhost:7000/fantasy')
+    .then(res => {
+       const randomizedScore = res.data;
+       this.setState({randomizedScore})
+       //console.log(schedule); 
+    })
+
   }
 
   onHomeClick = (event) => {
@@ -48,7 +61,7 @@ class Home extends React.Component {
                  <h3 style={{marginTop: '3%', textAlign: 'center'}}> Current Fantasy Scores
                  <i className="question circle outline icon" onClick={this.onPointSystemClick}></i></h3>
                  <div className="ui divider" style={{marginLeft: '26%', marginRight: '25%'}}></div>
-                 <p style={{textAlign: 'center'}}> API CALLS HERE FOR PLAYER INFO AND RANDOMIZED PLAYER SCORE </p>
+                 <p style={{textAlign: 'center'}}> {JSON.stringify(this.state.randomizedScore)} </p>
               </div>
           </div>
       );

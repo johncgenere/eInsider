@@ -5,37 +5,46 @@ const token = 'K-vNqWhG9uYGlPgD-SunEJu9bLZNfw_uOBi_2rGPgIp7b56V5lM';
 
 const setup = () => {
 
-  var objectData = []; 
+  let upcomingTournaments = []; 
   
-  const printReq = (req, res, next) => {
-    console.log("I HIT THE HOME/csgo BACKEND");
+  const logEndpoint = (req, res, next) => {
+    console.log("You have hit [GET] /home/csgo endpoint");
     next();
   };
 
-  const accessPanda = (req, res, next) => {
+  const getUpcomingTournaments = (req, res, next) => {
     request
-    .get(`api.pandascore.co/csgo/tournaments/upcoming?token=${token}`)
+    .get(`https://api.pandascore.co/csgo/tournaments/upcoming?sort=begin_at&token=${token}`)
     .set('Accept', 'application/json')
     .then(res => {
-      for (let arr of res.body)  // appending info to array that we're sending to front end
-        objectData.push({ "Tournament_name": arr['serie'].full_name, "Detailed_name": arr['name'], "League": arr['league'].name, "Starts_at": arr['begin_at'] })
+      res.body.forEach(csgoTournament => {
+        upcomingTournaments.push({
+          game: "Counter-Strike: Global Offensive",
+          tournamentName: csgoTournament.name,
+          startTime: csgoTournament.begin_at,
+          endTime: csgoTournament.end_at,
+          leagueName: csgoTournament.league.name,
+          serieName: csgoTournament.serie.name
+        });
+      });
       next();
     })
-    .catch(function(error) {
-      console.log(`Failed to get csgo upcoming tournaments\n${error.message}`);
+    .catch(err => {
+      console.log(`Failed get csgo upcoming tournaments data ${err.message}`);
     });
   };
 
   const sendResponse = (req, res, next) => {
+    console.log("Sending back the following json:\n" + JSON.stringify(upcomingTournaments, null, 2));
     res
     .status(200)
-    .json(objectData); // sending back our array with tournament info as json 
+    .json(upcomingTournaments);
   };
   
   return [
-    printReq,
-    accessPanda,
-    sendResponse 
+    logEndpoint,
+    getUpcomingTournaments, 
+    sendResponse
   ];
 };
 

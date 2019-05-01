@@ -1,5 +1,6 @@
 import React from 'react';
 import '../styles/Profile.css';
+import axios from 'axios';
 
 class Profile extends React.Component {
   constructor(props){
@@ -8,6 +9,24 @@ class Profile extends React.Component {
     this.onHomeClick = this.onHomeClick.bind(this);
     this.onFavoritesClick = this.onFavoritesClick.bind(this);
     this.onFantasyClick = this.onFantasyClick.bind(this);
+
+    this.state  = {
+      profile : {},
+      favorites : []
+    }
+    axios.get('http://localhost:7000/profile')
+    .then(res => {
+       const profile = res.data;
+       this.setState({profile})
+       //console.log(schedule);
+    })
+
+    axios.get('http://localhost:7000/favorites')
+    .then(res => {
+       const favorites = res.data;
+       this.setState({favorites})
+       //console.log(schedule);
+    })
   }
 
   onHomeClick = (event) => {
@@ -24,6 +43,8 @@ class Profile extends React.Component {
     console.log('Go to fantasy!');
     window.location.replace('/fantasy');
   }
+
+
 
   render(){
     return (
@@ -42,13 +63,13 @@ class Profile extends React.Component {
                 <div>
                   <h3 style={{marginTop: '3%', textAlign: 'center'}}> Your Information </h3>
                   <div className="ui divider"></div>
-                  <p style={{textAlign: 'center'}}> API CALLS HERE FOR USER INFO </p>
+                  <p style={{textAlign: 'center'}}> {JSON.stringify(this.state.profile)} </p>
                 </div>
 
                 <div>
                    <h3 style={{marginTop: '3%', textAlign: 'center'}}> Your Favorites </h3>
                    <div className="ui divider"></div>
-                   <p style={{textAlign: 'center'}}> API CALLS HERE FOR FAVORITES </p>
+                   <p style={{textAlign: 'center'}}> {JSON.stringify(this.state.favorites)} </p>
                 </div>
             </div>
         );

@@ -4,6 +4,7 @@
  import dota from '../images/dota.jpg';
  import csgo from '../images/CSGO.jpg';
  import '../styles/Home.css';
+ import axios from 'axios';
 
  let session = true;
 
@@ -21,7 +22,16 @@
      this.onDotaClick = this.onDotaClick.bind(this);
      this.onCSGOClick = this.onCSGOClick.bind(this);
 
-    //  this.state
+    this.state = {
+      schedule : {}
+    }
+
+    axios.get('http://localhost:7000/home')
+    .then(res => {
+       const schedule = res.data;
+       this.setState({schedule})
+       //console.log(schedule);
+    })
    }
 
    onFavoritesClick = (event) => {
@@ -76,6 +86,7 @@
    }
 
    render(){
+
      if(this.checkIfInSession()){
        return (
            <div>
@@ -93,7 +104,7 @@
                <div>
                   <h3 style={{marginTop: '3%', textAlign: 'center'}}> Schedule for Future Tournaments </h3>
                   <div className="ui divider"></div>
-                  <p style={{textAlign: 'center'}}> API CALLS HERE FOR SCHEDULE </p>
+                    <p style={{textAlign: 'center'}}> {JSON.stringify(this.state.schedule)} </p>
                </div>
 
               <div className="ui medium images">
@@ -118,7 +129,7 @@
                  <div>
                     <h3 style={{marginTop: '3%', textAlign: 'center'}}> Schedule for Future Tournaments </h3>
                     <div className="ui divider"></div>
-                    <p style={{textAlign: 'center'}}> API CALLS HERE FOR SCHEDULE </p>
+                    <p style={{textAlign: 'center'}}> {console.log(JSON.stringify(this.state.schedule))} </p>
                  </div>
 
                 <div className="ui medium images">

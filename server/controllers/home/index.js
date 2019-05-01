@@ -1,8 +1,9 @@
 function setup() {
   return {
+    upcomingTournaments: require('./upcomingTournaments')(),
     lol: require('./lol')(),
     dota2: require('./dota2')(),
-    overwatch: require('./overwatch')(),
+    ow: require('./ow')(),
     csgo: require('./csgo')()
   };
 }

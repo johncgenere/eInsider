@@ -5,9 +5,12 @@ const setup = () => {
   };
 
   const sendResponse = (req, res, next) => {
+    // console.log("req : " + JSON.stringify(req));
+    console.log("req : " + req);
+    console.alert("req : " + req);
     res
     .status(200)
-    .send('Welcome to profile');
+    .send('Welcome to profile ' + req.playerName);
   };
   
   return [

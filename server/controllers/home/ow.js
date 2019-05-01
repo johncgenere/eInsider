@@ -8,29 +8,29 @@ const setup = () => {
   let upcomingTournaments = []; 
   
   const logEndpoint = (req, res, next) => {
-    console.log("You have hit [GET] /home/dota2 endpoint");
+    console.log("You have hit [GET] /home/ow endpoint");
     next();
   };
 
   const getUpcomingTournaments = (req, res, next) => {
     request
-    .get(`https://api.pandascore.co/dota2/tournaments/upcoming?sort=begin_at&token=${token}`)
+    .get(`https://api.pandascore.co/ow/tournaments/upcoming?sort=begin_at&token=${token}`)
     .set('Accept', 'application/json')
     .then(res => {
-      res.body.forEach(dota2Tournament => {
+      res.body.forEach(owTournament => {
         upcomingTournaments.push({
-          game: "Dota 2",
-          tournamentName: dota2Tournament.name,
-          startTime: dota2Tournament.begin_at,
-          endTime: dota2Tournament.end_at,
-          leagueName: dota2Tournament.league.name,
-          serieName: dota2Tournament.serie.name
+          game: "Overwatch",
+          tournamentName: owTournament.name,
+          startTime: owTournament.begin_at,
+          endTime: owTournament.end_at,
+          leagueName: owTournament.league.name,
+          serieName: owTournament.serie.name
         });
       });
       next();
     })
     .catch(err => {
-      console.log(`Failed get dota2 upcoming tournaments data ${err.message}`);
+      console.log(`Failed get ow upcoming tournaments data ${err.message}`);
     });
   };
 
