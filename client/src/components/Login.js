@@ -1,4 +1,5 @@
 import React from 'react';
+import '../styles/Login.css';
 
 class Login extends React.Component {
   constructor(props){
@@ -20,7 +21,7 @@ class Login extends React.Component {
 
   render(){
     return(
-      <div style={{marginLeft: '35%', marginRight:'35%', marginTop: '16%'}}>
+      <div className="login">
         <div className="ui middle aligned center aligned grid">
           <div className="column">
             <h2 className="ui black image header">
@@ -46,10 +47,7 @@ class Login extends React.Component {
             </div>
           </div>
         </div>
-        <div className="ui fluid large black submit button"
-          style={{marginTop: '3%'}}
-          onClick={this.onHomeClick}
-        >
+        <div className="ui fluid large black submit button" onClick={this.onHomeClick}>
           Go Back Home
         </div>
       </div>

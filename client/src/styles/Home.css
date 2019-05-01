@@ -1,0 +1,23 @@
+ h1 {
+   text-align: center;
+ }
+
+ .ui.secondary.menu {
+   width: 50%;
+   margin-left: 26%;
+ }
+
+ .ui.divider {
+   margin-left: 26%;
+   margin-right: 25%;
+ }
+
+ .ui.medium.images {
+   margin-left: 26.5%;
+   margin-right: 15%;
+   margin-top: 3%;
+ }
+
+ img {
+   border-radius: 10px;
+ }

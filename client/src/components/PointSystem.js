@@ -1,4 +1,5 @@
 import React from 'react';
+import '../styles/PointSystem.css';
 
 class PointSystem extends React.Component {
   constructor(props){
@@ -14,8 +15,8 @@ class PointSystem extends React.Component {
 
   render(){
     return(
-      <div style={{textAlign: 'center', marginLeft: '20%', marginRight: '20%', height: '100vh', marginTop: '17%'}}>
-        <h1 style={{textAlign: 'center'}} onClick={this.onNameClick}>eInsider</h1>
+      <div className="text">
+        <h1 className="title" onClick={this.onNameClick}>eInsider</h1>
         <h2>How To Get Points In Your Fantasy League</h2>
         <p>
           You can get points from the stats from the players you have selected

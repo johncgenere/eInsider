@@ -1,0 +1,19 @@
+h1 {
+  text-align: center;
+}
+
+img {
+  width: 65%;
+  margin-left: 17.5%;
+  border-radius: 10px;
+}
+
+.ui.tiny.buttons {
+  margin-left: 42%;
+  margin-top: 2%;
+}
+
+.ui.piled.segment {
+  margin-left: 20%;
+  margin-right: 20%;
+}

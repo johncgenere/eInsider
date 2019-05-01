@@ -1,4 +1,5 @@
 import React from 'react';
+import '../styles/Profile.css';
 
 class Profile extends React.Component {
   constructor(props){
@@ -28,7 +29,7 @@ class Profile extends React.Component {
     return (
             <div>
                 <h1 style={{textAlign: 'center', marginTop: '3%'}}>eInsider</h1>
-                <div className="ui secondary  menu" style={{width: '50%', marginLeft: '26%'}}>
+                <div className="ui secondary menu">
                     <a className="item" onClick={this.onHomeClick} href="/">Home</a>
                     <a className="item" onClick={this.onFavoritesClick} href="/favorites">Favorites</a>
                     <a className="item" onClick={this.onFantasyClick} href="/fantasy">Fantasy</a>
@@ -40,13 +41,13 @@ class Profile extends React.Component {
 
                 <div>
                   <h3 style={{marginTop: '3%', textAlign: 'center'}}> Your Information </h3>
-                  <div className="ui divider" style={{marginLeft: '26%', marginRight: '25%'}}></div>
+                  <div className="ui divider"></div>
                   <p style={{textAlign: 'center'}}> API CALLS HERE FOR USER INFO </p>
                 </div>
 
                 <div>
                    <h3 style={{marginTop: '3%', textAlign: 'center'}}> Your Favorites </h3>
-                   <div className="ui divider" style={{marginLeft: '26%', marginRight: '25%'}}></div>
+                   <div className="ui divider"></div>
                    <p style={{textAlign: 'center'}}> API CALLS HERE FOR FAVORITES </p>
                 </div>
             </div>

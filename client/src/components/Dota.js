@@ -1,5 +1,6 @@
 import React from 'react';
 import logo from '../images/dotalandscape.jpeg';
+import '../styles/Games.css';
 
 class Dota extends React.Component {
   constructor(props){
@@ -26,15 +27,15 @@ class Dota extends React.Component {
   render(){
     return(
       <div>
-        <h1 style={{textAlign: 'center', marginTop: '3%'}} onClick={this.onHomeClick}>eInsider</h1>
-        <img src={logo} alt="Dota 2" style={{width: '65%', marginLeft: '17.5%', borderRadius: '10px'}}/>
-        <div className="ui tiny buttons" style={{marginLeft: '42%', marginTop: '2%'}}>
+        <h1 style={{marginTop: '3%'}} onClick={this.onHomeClick}>eInsider</h1>
+        <img src={logo} alt="Dota 2"/>
+        <div className="ui tiny buttons">
           <button className="ui button black" onClick={this.onFavoriteClick}><i className="star icon" />Favorite</button>
           <div className="or"></div>
           <button className="ui button" onClick={this.onUnfavoriteClick}><i className="star outline icon" />Unfavorite</button>
         </div>
 
-        <div className="ui piled segment" style={{marginLeft: '20%', marginRight: '20%'}}>
+        <div className="ui piled segment">
           <h4 className="ui header">Schedule</h4>
           <p>Schedule will be under here so API CALLS HERE</p>
         </div>
