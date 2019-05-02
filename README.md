@@ -3,6 +3,7 @@
 This is eInsider we are a website that provides relevant eSports information on 4 of the most popular games.
 
 # Table of Contents
+- [Setup Guide](#setup-guide)
 - [Backend](#backend)
   - [API Overview](#api-overview)
     - [Base](#base)
@@ -13,6 +14,50 @@ This is eInsider we are a website that provides relevant eSports information on 
     - [Home](#get-home)
     - [Fantasy](#get-fantasy)
     - [Users](#get-usersprofile)
+
+# Setup Guide
+To set everything on our website up here are the steps
+
+Open up the terminal and run these commands in this order
+
+`git clone https://github.com/johncgenere/eInsider.git`
+
+`cd eInsider`
+
+`npm install`
+
+`cd client`
+
+`npm install`
+
+`brew install postgresql`
+
+`pg_ctl -D /usr/local/var/postgres start && brew services start postgresql`
+
+`psql postgres`
+
+`CREATE DATABASE einsider`
+
+`\q`
+
+`npm start` You got the front end running
+
+Open up a new terminal
+
+`cd eInsider`
+
+`npm run backend` You got the back end running
+
+Create a file name `config.json` in the root directory the eInsider and copy and paste this code
+
+```
+{
+  "token": INSERT YOUR API PANDASCORE TOKEN HERE, 
+  "postgresUsername": INSERT YOUR POSTGRES USERNAME HERE
+}
+```
+
+You should be good to go have fun!
 
 # Backend
 
