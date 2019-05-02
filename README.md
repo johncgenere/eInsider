@@ -42,12 +42,13 @@ This is eInsider we are a website that provides relevant eSports information on 
 
 ## Users
 
-| endpoint                                        | description          |
-| ----------------------------------------------- | -------------------- |
-| [`[POST] /users/register`](#post-usersregister) | register a user      |
-| [`[POST] /users/login`](#post-userslogin)       | login to an account  |
-| [`[DELETE] /users/logout`](#delete-userslogout) | logout of an account |
-| [`[GET] /users/profile`](#get-usersprofile)     | get profile of user  |
+| endpoint                                          | description                |
+| ------------------------------------------------- | -------------------------- |
+| [`[GET] /users/profile`](#get-usersprofile)       | get profile of logged user |
+| [`[POST] /users/favorites`](#post-usersfavorites) | change favorites of user   |
+| [`[POST] /users/register`](#post-usersregister)   | register a user            |
+| [`[POST] /users/login`](#post-userslogin)         | log into an account        |
+| [`[DELETE] /users/logout`](#delete-userslogout)   | log out of an account      |
 
 # API Details
 
@@ -295,3 +296,159 @@ This is a sample `array` one will receive after the `GET` request:
   },
 ]
 ```
+
+## Users
+
+#### `[GET] /users/profile`
+
+returns a session object with the session of the currently logged in user
+
+cannot access this api without having logged in first
+
+error message if accessed without logged in user: `'cannot view profile without existing session'`
+
+This is a sample `JSON` one will receive after the `GET` request:
+
+```json
+{
+  "cookie": {
+    "originalMaxAge": null,
+    "expires": null,
+    "httpOnly": true,
+    "path": "/"
+  },
+  "username": "karl",
+  "lol": false,
+  "dota2": false,
+  "csgo": false,
+  "ow": true
+}
+```
+
+will receive 200 after successfully accessing a profile
+
+#### `[POST] /users/favorites`
+
+this endpoint allows you to change the favorites of a user
+
+you must send in the res.body any combination of four bools to change
+
+Here is an example `JSON` you can send:
+
+```json
+{
+  "lol": false,
+  "dota2": false,
+  "csgo": true,
+  "ow": true
+}
+```
+
+You can also omit what you dont want change for example if you just want to change lol and csgo
+
+```json
+{
+  "lol": false,
+  "csgo": true,
+}
+```
+
+You can also just send one 
+
+```json
+{
+  "ow": true,
+}
+```
+
+will receive 200 after successfully updating favorites
+
+#### `[POST] /users/register`
+
+this endpoint allows you to register a user
+
+if there is a user already logged in you will be thrown this error
+`'cannot register with an existing session'`
+
+you must send in the res.body a username and password for example:
+
+```json
+{
+  "username": "jonathan",
+  "password": "joestar"
+}
+```
+
+if neither username of password is not sent or one is not sent you will receive this error
+`'cannot create user without username'`
+OR
+`'cannot create user without password'`
+
+if the username already exists you will receive this error:
+`'user with the username "insertUsernameHere" already exists'`
+
+after that your user will be created in the database and you will receive this message:
+`'user inserted into the database!'`
+
+the session will also be updated to reflect the user just registered
+
+you will receive a 201 after successfully completing registering
+
+#### `[POST] /users/login`
+
+this endpoint allows you to login 
+
+if there is a user already logged in you will be thrown this error
+`'cannot login with an already existing session'`
+
+you must send in the res.body a username and password for example:
+
+```json
+{
+  "username": "dio",
+  "password": "brando"
+}
+```
+
+if neither username of password is not sent or one is not sent you will receive this error
+`'cannot find user without username'`
+OR
+`'cannot find user without password'`
+
+if the username does not exist the following error will be thrown:
+`'user does not exist'`
+
+if the password is not correct the following error will be thrown:
+`'incorrect password'`
+
+after successfully logging in you will receive a session in `JSON` here is an example:
+
+you will recieve a status code of 200
+
+```json
+{
+  "cookie": {
+    "originalMaxAge": null,
+    "expires": null,
+    "httpOnly": true,
+    "path": "/"
+  },
+  "username": "karl",
+  "lol": false,
+  "dota2": false,
+  "csgo": false,
+  "ow": true
+}
+```
+
+#### `[DELETE] /users/logout`
+
+this endpoint removes the user who is currently in the session
+
+if you try to log out without a logged in user this error will be thrown:
+`'cannot logout without an existing session'`
+
+after logging out successfully and the session is destroyed you will receive the following message:
+`'logged out successfully'`
+
+you will receive a status code of 200
