@@ -10,9 +10,9 @@ This is eInsider we are a website that provides relevant eSports information on 
     - [Fantasy](#fantasy)
     - [Users](#users)
   - [API Details](#api-details)
-    - [Home](#home)
-    - [Fantasy](#fantasy)
-    - [Users](#users)
+    - [Home](#get-home)
+    - [Fantasy](#get-fantasy)
+    - [Users](#get-usersprofile)
 
 # Backend
 
