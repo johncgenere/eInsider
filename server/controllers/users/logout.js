@@ -1,27 +1,31 @@
 const _ = require('lodash');
 
-const setup = (context) => {
+const setup = () => {  
 
   const logEndpoint = (req, res, next) => {
-    console.log("You have hit [GET] /users/profile endpoint");
+    console.log("You have hit [DELETE] /users/logout endpoint");
     next();
   };
 
   const checkIfSessionExists = (req, res, next) => {
     if (_.isEmpty(req.session.username) || _.isEmpty(req.session.password)){
-      console.log('cannot view profile without existing session');
+      console.log('cannot logout without an existing session');
       return res
         .status(400)
-        .send('cannot view profile without existing session');
+        .send('cannot logout without an existing session');
     }
     next();
   }
 
   const sendResponse = (req, res, next) => {
-    console.log("Sending back the following json:\n" + JSON.stringify(req.session.username, null, 2));
+    req.session.destroy(function(err) {
+      if(err) {
+        console.log(err);
+      }
+    });
     res
     .status(200)
-    .json(req.session.username);
+    .send('session successfully removed');
   };
   
   return [

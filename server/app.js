@@ -2,6 +2,7 @@ const express = require('express')
 const app = express();
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
+const session = require('express-session');
 
 const models = require('./database/models');
 
@@ -11,6 +12,8 @@ const attachRoutes = require('./routes');
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
+
+app.use(session({secret: 'eInsiderSession'}));
 
 app.use(cookieParser());
 

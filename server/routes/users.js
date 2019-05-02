@@ -8,6 +8,8 @@ const setup = (context) => {
 
   router.get('/profile', controller.profile);
   router.post('/register', controller.register);
+  router.post('/login', controller.login);
+  router.delete('/logout', controller.logout);
 
   return router;
 }

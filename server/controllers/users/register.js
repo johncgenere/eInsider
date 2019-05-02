@@ -9,6 +9,16 @@ const setup = (context) => {
     next();
   };
 
+  const checkIfSessionExists = (req, res, next) => {
+    if (!_.isEmpty(req.session.username) || !_.isEmpty(req.session.password)){
+      console.log('cannot register with an existing session');
+      return res
+        .status(400)
+        .send('cannot register with an existing session');
+    }
+    next();
+  }
+
   const sanitizeParams = (req, res, next) => {
     if (_.isEmpty(req.body.username)) {
       console.log('cannot create user without username');
@@ -46,10 +56,10 @@ const setup = (context) => {
         next();
       })
       .catch(err => {
-        console.log(`user with the username '${req.clean.username}' already exists`);
+        console.log(err.message);
         return res
           .status(400)
-          .send(`${err.message}`)
+          .send(err.message)
       });
   };
 
@@ -65,13 +75,17 @@ const setup = (context) => {
   }
 
   const sendResponse = (req, res, next) => {
+    // Sets the session
+    req.session.username = req.clean.username;
+	  req.session.password = req.clean.password;
     res
-    .status(200)
+    .status(201)
     .send('user inserted into the database!')
   }
   
   return [
     logEndpoint,
+    checkIfSessionExists,
     sanitizeParams,
     findUser,
     createUser,
