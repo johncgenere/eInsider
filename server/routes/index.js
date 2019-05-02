@@ -6,9 +6,7 @@ const routes = context => {
   
   app.use('/home', require('./home')());
   app.use('/fantasy', require('./fantasy')());
-  app.use('/profile', require('./profile')(context));
-  app.use('/login', require('./login')());
-  app.use('/signup', require('./signup')(context));
+  app.use('/users', require('./users')(context));
 
   app.use('/', (req, res, next) => {
     console.log("You have hit [GET] / endpoint");

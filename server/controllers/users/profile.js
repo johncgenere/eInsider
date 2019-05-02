@@ -1,6 +1,6 @@
 const setup = (context) => {
   const logEndpoint = (req, res, next) => {
-    console.log("You have hit [GET] /profile endpoint");
+    console.log("You have hit [GET] /users/profile endpoint");
     const user = context.models.user;
     user.findAll()
     .then((res) => {
@@ -12,7 +12,7 @@ const setup = (context) => {
   const sendResponse = (req, res, next) => {
     res
     .status(200)
-    .send('Welcome to profile ' + req.playerName);
+    .send('Welcome to profile');
   };
   
   return [

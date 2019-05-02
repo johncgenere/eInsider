@@ -2,7 +2,5 @@
 module.exports = {
   home: require('./home'),
   fantasy: require('./fantasy'),
-  profile: require('./profile'),
-  login: require('./login'),
-  signup: require('./signup')
+  users: require('./users')
 };
