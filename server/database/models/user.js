@@ -17,9 +17,22 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.STRING, 
         allowNull: false 
       },
-      /*favorites: { 
-        type: DataTypes.JSON 
-      }*/
+      lol: { 
+        type: DataTypes.BOOLEAN,
+        defaultValue: false
+      },
+      dota2: {
+        type: DataTypes.BOOLEAN,
+        defaultValue: false
+      },
+      csgo: {
+        type: DataTypes.BOOLEAN,
+        defaultValue: false
+      },
+      ow: {
+        type: DataTypes.BOOLEAN,
+        defaultValue: false
+      }
     },
     {
       timestamps: false

@@ -8,9 +8,11 @@ This is eInsider we are a website that provides relevant eSports information on 
     - [Base](#base)
     - [Home](#home)
     - [Fantasy](#fantasy)
+    - [Users](#users)
   - [API Details](#api-details)
     - [Home](#home)
     - [Fantasy](#fantasy)
+    - [Users](#users)
 
 # Backend
 
@@ -37,6 +39,15 @@ This is eInsider we are a website that provides relevant eSports information on 
 | endpoint                         | description                           |
 | -------------------------------- | ------------------------------------- |
 | [`[GET] /fantasy`](#get-fantasy) | data on the players in fantasy league |
+
+## Users
+
+| endpoint                                        | description          |
+| ----------------------------------------------- | -------------------- |
+| [`[POST] /users/register`](#post-usersregister) | register a user      |
+| [`[POST] /users/login`](#post-userslogin)       | login to an account  |
+| [`[DELETE] /users/logout`](#delete-userslogout) | logout of an account |
+| [`[GET] /users/profile`](#get-usersprofile)     | get profile of user  |
 
 # API Details
 

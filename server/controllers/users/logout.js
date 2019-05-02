@@ -8,7 +8,7 @@ const setup = () => {
   };
 
   const checkIfSessionExists = (req, res, next) => {
-    if (_.isEmpty(req.session.username) || _.isEmpty(req.session.password)){
+    if (_.isEmpty(req.session.username)){
       console.log('cannot logout without an existing session');
       return res
         .status(400)

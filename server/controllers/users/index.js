@@ -3,7 +3,8 @@ function setup(context) {
     profile: require('./profile')(context),
     register: require('./register')(context),
     login: require('./login')(context),
-    logout: require('./logout')(context)
+    logout: require('./logout')(context),
+    postFavorites: require('./postFavorites')(context)
   };
 }
 

@@ -9,7 +9,7 @@ const setup = (context) => {
   };
 
   const checkIfSessionExists = (req, res, next) => {
-    if (!_.isEmpty(req.session.username) || !_.isEmpty(req.session.password)){
+    if (!_.isEmpty(req.session.username)){
       console.log('cannot login with an already existing session');
       return res
         .status(400)
@@ -88,8 +88,12 @@ const setup = (context) => {
   const sendResponse = (req, res, next) => {
     console.log("Sending back the following json:\n" + JSON.stringify(req.clean.user, null, 2));
     // Sets the session
-    req.session.username = req.clean.username;
-	  req.session.password = req.clean.password;
+    req.session.username = req.clean.user.username;
+    //req.session.password = req.clean.password;
+    req.session.lol = req.clean.user.lol;
+    req.session.dota2 = req.clean.user.dota2;
+    req.session.csgo = req.clean.user.csgo;
+    req.session.ow = req.clean.user.ow;
     res
     .status(200)
     .json(req.clean.user);

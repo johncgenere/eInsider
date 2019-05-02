@@ -10,6 +10,7 @@ const setup = (context) => {
   router.post('/register', controller.register);
   router.post('/login', controller.login);
   router.delete('/logout', controller.logout);
+  router.post('/favorites', controller.postFavorites);
 
   return router;
 }

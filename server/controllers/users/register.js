@@ -64,7 +64,7 @@ const setup = (context) => {
   };
 
   const createUser = (req, res, next) => {
-    models.sequelize.query(`INSERT INTO "users" (username, password) VALUES ('${req.body.username}', '${req.body.password}');`)
+    models.sequelize.query(`INSERT INTO "users" (username, password) VALUES ('${req.clean.username}', '${req.clean.password}');`)
     .then(() => {
       console.log('user inserted into the database!');
       next();
@@ -77,7 +77,11 @@ const setup = (context) => {
   const sendResponse = (req, res, next) => {
     // Sets the session
     req.session.username = req.clean.username;
-	  req.session.password = req.clean.password;
+    //req.session.password = req.clean.password;
+    req.session.lol = false;
+    req.session.dota2 = false;
+    req.session.csgo = false;
+    req.session.ow = false;
     res
     .status(201)
     .send('user inserted into the database!')

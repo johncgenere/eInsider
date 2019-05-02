@@ -8,7 +8,7 @@ const setup = (context) => {
   };
 
   const checkIfSessionExists = (req, res, next) => {
-    if (_.isEmpty(req.session.username) || _.isEmpty(req.session.password)){
+    if (_.isEmpty(req.session.username)){
       console.log('cannot view profile without existing session');
       return res
         .status(400)
@@ -18,10 +18,10 @@ const setup = (context) => {
   }
 
   const sendResponse = (req, res, next) => {
-    console.log("Sending back the following json:\n" + JSON.stringify(req.session.username, null, 2));
+    console.log("Sending back the following json:\n" + JSON.stringify(req.session, null, 2));
     res
     .status(200)
-    .json(req.session.username);
+    .json(req.session);
   };
   
   return [
