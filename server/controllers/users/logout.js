@@ -20,12 +20,16 @@ const setup = () => {
   const sendResponse = (req, res, next) => {
     req.session.destroy(function(err) {
       if(err) {
-        console.log(err);
+        console.log(err.message);
+        return res
+        .status(400)
+        .send(err.message);
       }
     });
+    console.log('logged out successfully')
     res
     .status(200)
-    .send('session successfully removed');
+    .send('logged out successfully');
   };
   
   return [

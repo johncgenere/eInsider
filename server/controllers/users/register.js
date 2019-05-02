@@ -10,7 +10,7 @@ const setup = (context) => {
   };
 
   const checkIfSessionExists = (req, res, next) => {
-    if (!_.isEmpty(req.session.username) || !_.isEmpty(req.session.password)){
+    if (!_.isEmpty(req.session.username)){
       console.log('cannot register with an existing session');
       return res
         .status(400)
@@ -66,22 +66,26 @@ const setup = (context) => {
   const createUser = (req, res, next) => {
     models.sequelize.query(`INSERT INTO "users" (username, password) VALUES ('${req.clean.username}', '${req.clean.password}');`)
     .then(() => {
-      console.log('user inserted into the database!');
       next();
     })
     .catch(err => {
-      console.log(`user couldn't be inserted into the database because ${err.message}`);
-    })
+      console.log(err.message);
+      return res
+          .status(400)
+          .send(err.message)
+    });
   }
 
   const sendResponse = (req, res, next) => {
     // Sets the session
     req.session.username = req.clean.username;
-    //req.session.password = req.clean.password;
     req.session.lol = false;
     req.session.dota2 = false;
     req.session.csgo = false;
     req.session.ow = false;
+
+    console.log('user inserted into the database!');
+
     res
     .status(201)
     .send('user inserted into the database!')

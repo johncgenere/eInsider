@@ -86,17 +86,18 @@ const setup = (context) => {
   };
 
   const sendResponse = (req, res, next) => {
-    console.log("Sending back the following json:\n" + JSON.stringify(req.clean.user, null, 2));
     // Sets the session
     req.session.username = req.clean.user.username;
-    //req.session.password = req.clean.password;
     req.session.lol = req.clean.user.lol;
     req.session.dota2 = req.clean.user.dota2;
     req.session.csgo = req.clean.user.csgo;
     req.session.ow = req.clean.user.ow;
+
+    console.log("Sending back the following json:\n" + JSON.stringify(req.session, null, 2));
+
     res
     .status(200)
-    .json(req.clean.user);
+    .json(req.session);
   };
   
   return [
