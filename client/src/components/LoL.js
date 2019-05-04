@@ -9,6 +9,13 @@ class LoL extends React.Component {
     this.onHomeClick = this.onHomeClick.bind(this);
     this.onFavoriteClick = this.onFavoriteClick.bind(this);
     this.onUnfavoriteClick = this.onUnfavoriteClick.bind(this);
+
+    axios.get('http://localhost:7000/home/lol')
+    .then(res => {
+       const lolData = res.data;
+      //  this.setState({csgoData})
+      console.log(lolData);
+    })
   }
 
   onHomeClick = (event) => {

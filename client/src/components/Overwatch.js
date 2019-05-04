@@ -8,6 +8,13 @@ class Overwatch extends React.Component {
     this.onHomeClick = this.onHomeClick.bind(this);
     this.onFavoriteClick = this.onFavoriteClick.bind(this);
     this.onUnfavoriteClick = this.onUnfavoriteClick.bind(this);
+
+    axios.get('http://localhost:7000/home/ow')
+    .then(res => {
+       const owData = res.data;
+      //  this.setState({csgoData})
+      console.log(owData);
+    })
   }
 
   onHomeClick = (event) => {

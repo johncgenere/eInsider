@@ -14,8 +14,8 @@ class CSGO extends React.Component {
     axios.get('http://localhost:7000/home/csgo')
     .then(res => {
        const csgoData = res.data;
-       this.setState({csgoData})
-       //console.log(schedule);
+      //  this.setState({csgoData})
+      console.log(csgoData);
     })
   }
 

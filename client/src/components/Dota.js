@@ -9,6 +9,13 @@ class Dota extends React.Component {
     this.onHomeClick = this.onHomeClick.bind(this);
     this.onFavoriteClick = this.onFavoriteClick.bind(this);
     this.onUnfavoriteClick = this.onUnfavoriteClick.bind(this);
+
+    axios.get('http://localhost:7000/home/dota2')
+    .then(res => {
+       const dotaData = res.data;
+      //  this.setState({csgoData})
+      console.log(dotaData);
+    })
   }
 
   onHomeClick = (event) => {
