@@ -28,12 +28,26 @@ class Overwatch extends React.Component {
 
   onFavoriteClick = (event) => {
     console.log('fav');
-    // api call made here with axios to send boolean type true
+
+    axios.post('http://localhost:7000/favorites', {
+      "ow": true
+    }).then(response => {
+      console.log(response)
+    }).catch(error => {
+      console.log(error.response)
+    })
   }
 
   onUnfavoriteClick = (event) => {
     console.log('unfav');
-    // api call made here with axios to send boolean type false
+
+    axios.post('http://localhost:7000/favorites', {
+      "ow": false
+    }).then(response => {
+      console.log(response)
+    }).catch(error => {
+      console.log(error.response)
+    })
   }
 
   render(){

@@ -21,7 +21,7 @@ class SignUp extends React.Component {
   handleSignUp = () => {
     console.log("username: " + this.state.username);
 
-    axios.post('http://localhost:7000/users/register', {
+    axios.post('http://localhost:7000/register', {
       "username": this.state.username,
       "password": "somewords"
     }).then(response => {

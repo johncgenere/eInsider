@@ -29,10 +29,26 @@ class LoL extends React.Component {
 
   onFavoriteClick = (event) => {
     console.log('fav');
+
+    axios.post('http://localhost:7000/favorites', {
+      "lol": true
+    }).then(response => {
+      console.log(response)
+    }).catch(error => {
+      console.log(error.response)
+    })
   }
 
   onUnfavoriteClick = (event) => {
     console.log('unfav');
+
+    axios.post('http://localhost:7000/favorites', {
+      "lol": false
+    }).then(response => {
+      console.log(response)
+    }).catch(error => {
+      console.log(error.response)
+    })
   }
 
   render(){

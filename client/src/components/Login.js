@@ -27,7 +27,7 @@ class Login extends React.Component {
   handleLogin = () => {
     console.log("username: " + this.state.username);
 
-    axios.post('http://localhost:7000/users/login', {
+    axios.post('http://localhost:7000/login', {
       "username": this.state.username,
       "password": "somewords"
     }).then(response => {
