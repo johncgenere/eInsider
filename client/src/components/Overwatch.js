@@ -29,7 +29,7 @@ class Overwatch extends React.Component {
   onFavoriteClick = (event) => {
     console.log('fav');
 
-    axios.post('http://localhost:7000/favorites', {
+    axios.post('http://localhost:7000/users/favorites', {
       "ow": true
     }).then(response => {
       console.log(response)
@@ -41,7 +41,7 @@ class Overwatch extends React.Component {
   onUnfavoriteClick = (event) => {
     console.log('unfav');
 
-    axios.post('http://localhost:7000/favorites', {
+    axios.post('http://localhost:7000/users/favorites', {
       "ow": false
     }).then(response => {
       console.log(response)

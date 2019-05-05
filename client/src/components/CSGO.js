@@ -30,7 +30,7 @@ class CSGO extends React.Component {
   onFavoriteClick = (event) => {
     console.log('fav');
 
-    axios.post('http://localhost:7000/favorites', {
+    axios.post('http://localhost:7000/users/favorites', {
       "csgo": true
     }).then(response => {
       console.log(response)
@@ -42,7 +42,7 @@ class CSGO extends React.Component {
   onUnfavoriteClick = (event) => {
     console.log('unfav');
 
-    axios.post('http://localhost:7000/favorites', {
+    axios.post('http://localhost:7000/users/favorites', {
       "csgo": false
     }).then(response => {
       console.log(response)
