@@ -14,6 +14,10 @@ class Login extends React.Component {
      this.setState({username: e.target.value});
   }
 
+  handlePasswordInput = (e) => {
+    this.setState({password: e.target.value});
+  }
+
   onSignUpClick = (event) => {
     console.log('Sign me up!');
     window.location.replace('/signup');
@@ -26,10 +30,11 @@ class Login extends React.Component {
 
   handleLogin = () => {
     console.log("username: " + this.state.username);
+    console.log("password: " + this.state.password);
 
     axios.post('http://localhost:7000/users/login', {
       "username": this.state.username,
-      "password": "somewords"
+      "password": this.state.password
     }).then(response => {
       console.log(response)
     }).catch(error => {
@@ -57,6 +62,17 @@ class Login extends React.Component {
                       name="username"
                       placeholder="Username"
                       onChange={this.handleUsernameInput}
+                    />
+                  </div>
+                </div>
+                <div className="field">
+                  <div className="ui left icon input">
+                    <i className="lock icon"></i>
+                    <input
+                      type="password"
+                      name="password"
+                      placeholder="Password"
+                      onChange={this.handlePasswordInput}
                     />
                   </div>
                 </div>

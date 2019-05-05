@@ -13,6 +13,10 @@ class SignUp extends React.Component {
      this.setState({username: e.target.value});
   }
 
+  handlePasswordInput = (e) => {
+    this.setState({password: e.target.value});
+  }
+
   onHomeClick = (event) => {
     console.log('Go home!');
     window.location.replace('/');
@@ -20,10 +24,11 @@ class SignUp extends React.Component {
 
   handleSignUp = () => {
     console.log("username: " + this.state.username);
+    console.log("password: " + this.state.password);
 
     axios.post('http://localhost:7000/users/register', {
       "username": this.state.username,
-      "password": "somewords"
+      "password": this.state.password
     }).then(response => {
       console.log(response)
     }).catch(error => {
@@ -51,6 +56,17 @@ class SignUp extends React.Component {
                       name="username"
                       placeholder="Username"
                       onChange={this.handleUsernameInput}
+                    />
+                  </div>
+                </div>
+                <div className="field">
+                  <div className="ui left icon input">
+                    <i className="lock icon"></i>
+                    <input
+                      type="password"
+                      name="password"
+                      placeholder="Password"
+                      onChange={this.handlePasswordInput}
                     />
                   </div>
                 </div>
