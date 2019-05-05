@@ -5,6 +5,7 @@
  import csgo from '../images/CSGO.jpg';
  import '../styles/Home.css';
  import axios from 'axios';
+ import GameSchedule from './GameSchedule';
 
  let session = true;
 
@@ -103,7 +104,17 @@
                <div>
                   <h3 style={{marginTop: '3%', textAlign: 'center'}}> Schedule for Future Tournaments </h3>
                   <div className="ui divider"></div>
-                    <p style={{textAlign: 'center'}}> {JSON.stringify(this.state.schedule)} </p>
+                  <div className="ui cards" style={{width: '100%', marginLeft: '24.6%', marginRight: '25%'}}>
+                    <GameSchedule title="League"/>
+                    <GameSchedule title="Overwatch"/>
+                    <GameSchedule title="CSGO"/>
+                    <GameSchedule title="Dota 2"/>
+                  </div>
+                  <br /><br /><br />
+                  <p style={{textAlign: 'center'}}>League of Legends: {JSON.stringify(this.state.schedule.lol || {}.game)}</p>
+                  <p style={{textAlign: 'center'}}>Overwatch: {JSON.stringify(this.state.schedule.ow)}</p>
+                  <p style={{textAlign: 'center'}}>Dota 2: {JSON.stringify(this.state.schedule.dota2)}</p>
+                  <p style={{textAlign: 'center'}}>CSGO: {JSON.stringify(this.state.schedule.csgo)}</p>
                </div>
 
               <div className="ui medium images">
