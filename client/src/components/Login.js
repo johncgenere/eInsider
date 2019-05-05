@@ -1,4 +1,5 @@
 import React from 'react';
+import axios from 'axios';
 import '../styles/Login.css';
 
 class Login extends React.Component {
@@ -9,6 +10,10 @@ class Login extends React.Component {
     this.onHomeClick  = this.onHomeClick.bind(this);
   }
 
+  handleUsernameInput = (e) => {
+     this.setState({username: e.target.value});
+  }
+
   onSignUpClick = (event) => {
     console.log('Sign me up!');
     window.location.replace('/signup');
@@ -17,6 +22,23 @@ class Login extends React.Component {
   onHomeClick = (event) => {
     console.log('Go home!');
     window.location.replace('/');
+  }
+
+  handleLogin = () => {
+    console.log("username: " + this.state.username);
+    var formData = new FormData();
+    formData.set("username", this.state.username);
+    formData.set("password", "something");
+
+    axios({
+      method: 'post',
+      url: 'http://localhost:7000/login',
+      data: formData,
+    }).then(function(response){
+      console.log(response)
+    }).catch(function(response){
+      console.log(response)
+    })
   }
 
   render(){
@@ -34,10 +56,15 @@ class Login extends React.Component {
                 <div className="field">
                   <div className="ui left icon input">
                     <i className="user icon"></i>
-                    <input type="text" name="email" placeholder="Username"/>
+                    <input
+                      type="text"
+                      name="username"
+                      placeholder="Username"
+                      onChange={this.handleUsernameInput}
+                    />
                   </div>
                 </div>
-                <div className="ui fluid large black submit button">Login</div>
+                <div className="ui fluid large black submit button" onClick={this.handleLogin}>Login</div>
               </div>
               <div className="ui error message"></div>
             </form>
