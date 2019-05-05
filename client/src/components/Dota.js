@@ -1,6 +1,7 @@
 import React from 'react';
 import logo from '../images/dotalandscape.jpeg';
 import '../styles/Games.css';
+import axios from 'axios';
 
 class Dota extends React.Component {
   constructor(props){
@@ -10,11 +11,14 @@ class Dota extends React.Component {
     this.onFavoriteClick = this.onFavoriteClick.bind(this);
     this.onUnfavoriteClick = this.onUnfavoriteClick.bind(this);
 
+    this.state = {
+      schedule : {}
+    }
+
     axios.get('http://localhost:7000/home/dota2')
     .then(res => {
-       const dotaData = res.data;
-      //  this.setState({csgoData})
-      console.log(dotaData);
+      const dotaData = res.data;
+      this.setState({dotaData})
     })
   }
 
@@ -44,7 +48,7 @@ class Dota extends React.Component {
 
         <div className="ui piled segment">
           <h4 className="ui header">Schedule</h4>
-          <p>Schedule will be under here so API CALLS HERE</p>
+          <p>{JSON.stringify(this.state.dotaData)} </p>
         </div>
       </div>
     );

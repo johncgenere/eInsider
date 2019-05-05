@@ -11,11 +11,14 @@ class CSGO extends React.Component {
     this.onFavoriteClick = this.onFavoriteClick.bind(this);
     this.onUnfavoriteClick = this.onUnfavoriteClick.bind(this);
 
+    this.state = {
+      schedule : {}
+    }
+
     axios.get('http://localhost:7000/home/csgo')
     .then(res => {
-       const csgoData = res.data;
-      //  this.setState({csgoData})
-      console.log(csgoData);
+      const csgoData = res.data;
+      this.setState({csgoData})
     })
   }
 
@@ -45,7 +48,7 @@ class CSGO extends React.Component {
 
         <div className="ui piled segment">
           <h4 className="ui header">Schedule</h4>
-          <p>Schedule will be under here so API CALLS HERE</p>
+          <p>{JSON.stringify(this.state.csgoData)}</p>
         </div>
       </div>
     );

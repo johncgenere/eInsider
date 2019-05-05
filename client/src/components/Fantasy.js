@@ -17,8 +17,7 @@ class Home extends React.Component {
     axios.get('http://localhost:7000/fantasy')
     .then(res => {
        const randomizedScore = res.data;
-      //  this.setState({randomizedScore})
-       console.log(randomizedScore); 
+       this.setState({randomizedScore})
     })
 
   }

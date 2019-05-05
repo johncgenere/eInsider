@@ -29,8 +29,7 @@
     axios.get('http://localhost:7000/home')
     .then(res => {
        const schedule = res.data;
-      //  this.setState({schedule})
-       console.log(schedule);
+       this.setState({schedule})
     })
    }
 
