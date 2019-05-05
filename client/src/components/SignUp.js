@@ -1,4 +1,5 @@
 import React from 'react';
+import axios from 'axios';
 import '../styles/SignUp.css';
 
 class SignUp extends React.Component {
@@ -8,9 +9,26 @@ class SignUp extends React.Component {
     this.onHomeClick = this.onHomeClick.bind(this);
   }
 
+  handleUsernameInput = (e) => {
+     this.setState({username: e.target.value});
+  }
+
   onHomeClick = (event) => {
     console.log('Go home!');
     window.location.replace('/');
+  }
+
+  handleSignUp = () => {
+    console.log("username: " + this.state.username);
+
+    axios.post('http://localhost:7000/users/register', {
+      "username": this.state.username,
+      "password": "somewords"
+    }).then(response => {
+      console.log(response)
+    }).catch(error => {
+      console.log(error.response)
+    })
   }
 
   render(){
@@ -28,10 +46,15 @@ class SignUp extends React.Component {
                 <div className="field">
                   <div className="ui left icon input">
                     <i className="user icon"></i>
-                    <input type="text" placeholder="Username"/>
+                    <input
+                      type="text"
+                      name="username"
+                      placeholder="Username"
+                      onChange={this.handleUsernameInput}
+                    />
                   </div>
                 </div>
-                <div className="ui fluid large black submit button">Register</div>
+                <div className="ui fluid large black submit button" onClick={this.handleSignUp}>Register</div>
               </div>
               <div className="ui error message"></div>
             </form>
