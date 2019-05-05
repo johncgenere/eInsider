@@ -14,7 +14,7 @@ class Favorites extends React.Component {
       favorites : {}
     }
 
-    axios.get('http://localhost:7000/favorites')
+    axios.get('http://localhost:7000/users/favorites')
     .then(res => {
        const favorites = res.data;
        this.setState({favorites})

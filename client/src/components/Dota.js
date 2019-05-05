@@ -30,7 +30,7 @@ class Dota extends React.Component {
   onFavoriteClick = (event) => {
     console.log('fav');
 
-    axios.post('http://localhost:7000/favorites', {
+    axios.post('http://localhost:7000/users/favorites', {
       "dota2": true
     }).then(response => {
       console.log(response)
@@ -42,7 +42,7 @@ class Dota extends React.Component {
   onUnfavoriteClick = (event) => {
     console.log('unfav');
 
-    axios.post('http://localhost:7000/favorites', {
+    axios.post('http://localhost:7000/users/favorites', {
       "dota2": false
     }).then(response => {
       console.log(response)
