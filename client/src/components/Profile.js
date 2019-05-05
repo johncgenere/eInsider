@@ -14,14 +14,14 @@ class Profile extends React.Component {
       profile : {},
       favorites : []
     }
-    axios.get('http://localhost:7000/profile')
+    axios.get('http://localhost:7000/users/profile')
     .then(res => {
        const profile = res.data;
        this.setState({profile})
        //console.log(schedule);
     })
 
-    axios.get('http://localhost:7000/favorites')
+    axios.get('http://localhost:7000/users/favorites')
     .then(res => {
        const favorites = res.data;
        this.setState({favorites})
