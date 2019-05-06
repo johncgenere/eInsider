@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from 'axios';
+import GamerCard from './GamerCard';
 
 class Home extends React.Component {
   constructor(props){
@@ -60,6 +61,13 @@ class Home extends React.Component {
                  <h3 style={{marginTop: '3%', textAlign: 'center'}}> Current Fantasy Scores
                  <i className="question circle outline icon" onClick={this.onPointSystemClick}></i></h3>
                  <div className="ui divider" style={{marginLeft: '26%', marginRight: '25%'}}></div>
+                 <div className="ui cards" style={{marginLeft: '27%', marginRight: '25%'}}>
+                   <GamerCard
+                     playerName="EncryptedLimit"
+                     team="OpTic Gaming"
+                     score="100"
+                   />
+                 </div>    
                  <p style={{textAlign: 'center'}}> {JSON.stringify(this.state.randomizedScore)} </p>
               </div>
           </div>

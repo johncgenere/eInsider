@@ -5,6 +5,10 @@ class GameSchedule extends React.Component {
   //   super(props);
   // }
 
+  // convertTime = () => {
+  //
+  // }
+
   render(){
     return(
       <div className="card" style={{height: '40px'}}>
