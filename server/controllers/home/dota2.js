@@ -1,6 +1,7 @@
 const request = require('superagent');
 const config = require('../../../config.json')
 const moment = require('moment');
+const _ = require('lodash');
 
 const setup = () => {
 
@@ -20,8 +21,8 @@ const setup = () => {
         upcomingTournaments.push({
           game: "Dota 2",
           tournamentName: dota2Tournament.name,
-          startTime: moment(dota2Tournament.begin_at).format('MM-DD-YYYY'),
-          endTime: moment(dota2Tournament.end_at).format('MM-DD-YYYY'),
+          startTime: !_.isEmpty(dota2Tournament.begin_at) ? moment(dota2Tournament.begin_at).format('MM-DD-YYYY') : null,
+          endTime: !_.isEmpty(dota2Tournament.end_at) ? moment(dota2Tournament.end_at).format('MM-DD-YYYY') : null,
           leagueName: dota2Tournament.league.name,
           serieName: dota2Tournament.serie.name
         });
