@@ -12,13 +12,13 @@ class Home extends React.Component {
     this.onFavoritesClick = this.onFavoritesClick.bind(this);
 
     this.state = {
-      randomizedScore : []
+      players : []
     }
 
     axios.get('http://localhost:7000/fantasy')
     .then(res => {
        const randomizedScore = res.data;
-       this.setState({randomizedScore})
+       this.setState({players: randomizedScore})
     })
 
   }
@@ -44,7 +44,16 @@ class Home extends React.Component {
   }
 
   render(){
-      return (
+        let table = [];
+        for(var i = 0; i < this.state.players.length; i++){
+          table.push(<GamerCard
+            playerName = {this.state.players[i].playerName}
+            team = {this.state.players[i].team}
+            game = {this.state.players[i].game}
+            score = {this.state.players[i].score}
+          />)
+        }
+        return (
           <div>
               <h1 style={{marginTop: '3%'}}>eInsider</h1>
               <div className="ui secondary menu" style={{width: '50%', marginLeft: '26%'}}>
@@ -61,14 +70,9 @@ class Home extends React.Component {
                  <h3 style={{marginTop: '3%', textAlign: 'center'}}> Current Fantasy Scores
                  <i className="question circle outline icon" onClick={this.onPointSystemClick}></i></h3>
                  <div className="ui divider" style={{marginLeft: '26%', marginRight: '25%'}}></div>
-                 <div className="ui cards" style={{marginLeft: '27%', marginRight: '25%'}}>
-                   <GamerCard
-                     playerName="EncryptedLimit"
-                     team="OpTic Gaming"
-                     score="100"
-                   />
-                 </div>    
-                 <p style={{textAlign: 'center'}}> {JSON.stringify(this.state.randomizedScore)} </p>
+                 <div className="ui cards" style={{marginLeft: '25%'}}>
+                   {table}
+                 </div>
               </div>
           </div>
       );

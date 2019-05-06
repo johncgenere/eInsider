@@ -1,14 +1,6 @@
 import React from 'react'
 
 class GameSchedule extends React.Component {
-  // constructor(props){
-  //   super(props);
-  // }
-
-  // convertTime = () => {
-  //
-  // }
-
   render(){
     return(
       <div className="card" style={{height: '40px'}}>
