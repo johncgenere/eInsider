@@ -181,25 +181,46 @@
                  <div>
                     <h3 style={{marginTop: '3%', textAlign: 'center'}}> Schedule for Future Tournaments </h3>
                     <div className="ui divider"></div>
-                    <div className="ui cards" style={{width: '100%', marginLeft: '24.6%', marginRight: '25%'}}>
-                      <GameSchedule title="League"/>
-                      <GameSchedule title="Overwatch"/>
-                      <GameSchedule title="CSGO"/>
-                      <GameSchedule title="Dota 2"/>
+                    <div className="ui cards" style={{marginLeft: '27%', marginRight: '25%'}}>
+                      <GameSchedule
+                        title={this.state.ow.game}
+                        tournament={this.state.ow.tournamentName}
+                        league={this.state.ow.leagueName}
+                        startTime={this.state.ow.startTime}
+                        icon={owIcon}
+                      />
+                      <GameSchedule
+                       title={this.state.lol.game}
+                       tournament={this.state.lol.tournamentName}
+                       league={this.state.lol.leagueName}
+                       startTime={this.state.lol.startTime}
+                       icon={lolIcon}
+                      />
+                      <GameSchedule
+                        title={this.state.dota2.game}
+                        tournament={this.state.dota2.tournamentName}
+                        league={this.state.dota2.leagueName}
+                        startTime={this.state.dota2.startTime}
+                        icon={dota2Icon}
+                      />
+                      <GameSchedule
+                        title={this.state.csgo.game}
+                        tournament={this.state.csgo.tournamentName}
+                        league={this.state.csgo.leagueName}
+                        startTime={this.state.csgo.startTime}
+                        icon={csgoIcon}
+                      />
                     </div>
-                    <br /><br /><br />
-                    <p style={{textAlign: 'center'}}>League of Legends: {JSON.stringify(this.state.schedule.lol || {}.game)}</p>
-                    <p style={{textAlign: 'center'}}>Overwatch: {JSON.stringify(this.state.schedule.ow)}</p>
-                    <p style={{textAlign: 'center'}}>Dota 2: {JSON.stringify(this.state.schedule.dota2)}</p>
-                    <p style={{textAlign: 'center'}}>CSGO: {JSON.stringify(this.state.schedule.csgo)}</p>
                  </div>
 
-                 <div className="ui medium images">
+                <h3 style={{marginTop: '3%', textAlign: 'center'}}> Individual Games </h3>
+                <div className="ui divider"></div>
+                <div className="ui medium images" style={{marginTop: '0%'}}>
                   <img src={overwatch} alt="Overwatch" onClick={this.onOverwatchClick} />
                   <img src={lol} alt="League Of Legends" onClick={this.onLoLClick} />
                   <img src={dota} alt="Dota 2"onClick={this.onDotaClick} />
                   <img src={csgo} alt="CS:GO" onClick={this.onCSGOClick} />
-                 </div>
+                </div>
              </div>
          );
      }
