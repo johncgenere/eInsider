@@ -24,13 +24,23 @@
      this.onCSGOClick = this.onCSGOClick.bind(this);
 
     this.state = {
-      schedule : {}
+      schedule : {},
+      lol: {},
+      ow: {},
+      dota2: {},
+      csgo: {}
     }
 
     axios.get('http://localhost:7000/home')
     .then(res => {
        const schedule = res.data;
-       this.setState({schedule})
+       this.setState({
+         schedule,
+         lol: schedule.lol,
+         ow: schedule.ow,
+         csgo: schedule.csgo,
+         dota2: schedule.dota2
+       })
     })
    }
 
@@ -111,17 +121,32 @@
                <div>
                   <h3 style={{marginTop: '3%', textAlign: 'center'}}> Schedule for Future Tournaments </h3>
                   <div className="ui divider"></div>
-                  <div className="ui cards" style={{width: '100%', marginLeft: '24.6%', marginRight: '25%'}}>
-                    <GameSchedule title="League"/>
-                    <GameSchedule title="Overwatch"/>
-                    <GameSchedule title="CSGO"/>
-                    <GameSchedule title="Dota 2"/>
+                  <div className="ui cards" style={{marginLeft: '27%', marginRight: '25%'}}>
+                    <GameSchedule
+                     title={this.state.lol.game}
+                     tournament={this.state.lol.tournamentName}
+                     league={this.state.lol.leagueName}
+                     startTime={this.state.lol.startTime}
+                    />
+                    <GameSchedule
+                      title={this.state.ow.game}
+                      tournament={this.state.ow.tournamentName}
+                      league={this.state.ow.leagueName}
+                      startTime={this.state.ow.startTime}
+                    />
+                    <GameSchedule
+                      title={this.state.dota2.game}
+                      tournament={this.state.dota2.tournamentName}
+                      league={this.state.dota2.leagueName}
+                      startTime={this.state.dota2.startTime}
+                    />
+                    <GameSchedule
+                      title={this.state.csgo.game}
+                      tournament={this.state.csgo.tournamentName}
+                      league={this.state.csgo.leagueName}
+                      startTime={this.state.csgo.startTime}
+                    />
                   </div>
-                  <br /><br /><br />
-                  <p style={{textAlign: 'center'}}>League of Legends: {JSON.stringify(this.state.schedule.lol || {}.game)}</p>
-                  <p style={{textAlign: 'center'}}>Overwatch: {JSON.stringify(this.state.schedule.ow)}</p>
-                  <p style={{textAlign: 'center'}}>Dota 2: {JSON.stringify(this.state.schedule.dota2)}</p>
-                  <p style={{textAlign: 'center'}}>CSGO: {JSON.stringify(this.state.schedule.csgo)}</p>
                </div>
 
               <div className="ui medium images">

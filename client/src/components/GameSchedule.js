@@ -1,29 +1,22 @@
 import React from 'react'
 
 class GameSchedule extends React.Component {
-  constructor(props){
-    super(props);
-  }
+  // constructor(props){
+  //   super(props);
+  // }
 
   render(){
     return(
       <div className="card">
-        <div class="ui comments">
-          <div class="comment">
-            <a class="avatar">
-              <img src="/" alt="nah" />
-            </a>
-            <div class="content">
-              <a class="author">Stevie Feliciano</a>
-              <div class="metadata">
-                <div class="date">2 days ago</div>
-                <div class="rating">
-                  <i class="star icon"></i>
-                  5 Faves
-                </div>
-              </div>
-              <p>
-                Hey guys, I hope this example comment is helping you read this documentation.
+        <div className="ui comments">
+          <div className="comment">
+            <div className="content">
+              <p className="author" style={{marginTop: '5%', textAlign: 'center'}}>{this.props.title}</p>
+              <div className="ui divider" style={{width: '100%', marginLeft: '0%'}}/>
+              <p style={{textAlign: 'center', marginBottom: '5%'}}>
+                Tournament: {this.props.tournament} <br />
+                League: {this.props.league}<br />
+                @ {this.props.startTime}<br />
               </p>
             </div>
           </div>
