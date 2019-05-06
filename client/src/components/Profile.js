@@ -1,6 +1,10 @@
 import React from 'react';
 import '../styles/Profile.css';
 import axios from 'axios';
+import overwatch from '../images/overwatch.jpg';
+import lol from '../images/lol.jpg';
+import dota from '../images/dota.jpg';
+import csgo from '../images/CSGO.jpg';
 
 class Profile extends React.Component {
   constructor(props){
@@ -9,9 +13,13 @@ class Profile extends React.Component {
     this.onHomeClick = this.onHomeClick.bind(this);
     this.onFavoritesClick = this.onFavoritesClick.bind(this);
     this.onFantasyClick = this.onFantasyClick.bind(this);
+    this.onLoLClick = this.onLoLClick.bind(this);
+    this.onOverwatchClick = this.onOverwatchClick.bind(this);
+    this.onDotaClick = this.onDotaClick.bind(this);
+    this.onCSGOClick = this.onCSGOClick.bind(this);
 
     this.state  = {
-      profile : {},
+      username : "",
       favorites : []
     }
     axios.get('http://localhost:7000/users/profile')
@@ -48,6 +56,25 @@ class Profile extends React.Component {
     window.location.replace('/fantasy');
   }
 
+  onLoLClick = (event) => {
+    console.log('league');
+    window.location.replace('/leagueoflegends');
+  }
+
+  onOverwatchClick = (event) => {
+    console.log('overwatch');
+    window.location.replace('/overwatch');
+  }
+
+  onDotaClick = (event) => {
+    console.log('dota2');
+    window.location.replace('/dota2');
+  }
+
+  onCSGOClick = (event) => {
+    console.log('csgo');
+    window.location.replace('/csgo');
+  }
 
 
   render(){
