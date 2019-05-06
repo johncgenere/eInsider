@@ -1,5 +1,6 @@
 const request = require('superagent');
 const config = require('../../../config.json')
+const moment = require('moment');
 
 const setup = () => {
 
@@ -19,8 +20,8 @@ const setup = () => {
         upcomingTournaments.push({
           game: "Counter-Strike: Global Offensive",
           tournamentName: csgoTournament.name,
-          startTime: csgoTournament.begin_at,
-          endTime: csgoTournament.end_at,
+          startTime: moment(csgoTournament.begin_at).format('MM-DD-YYYY'),
+          endTime: moment(csgoTournament.end_at).format('MM-DD-YYYY'),
           leagueName: csgoTournament.league.name,
           serieName: csgoTournament.serie.name
         });

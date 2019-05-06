@@ -1,5 +1,6 @@
 const request = require('superagent');
 const config = require('../../../config.json');
+const moment = require('moment');
 
 const setup = () => {
 
@@ -18,8 +19,8 @@ const setup = () => {
       upcomingTournaments["lol"] = {
         game: "League of Legends",
         tournamentName: res.body[0].name,
-        startTime: res.body[0].begin_at,
-        endTime: res.body[0].end_at,
+        startTime: moment(res.body[0].begin_at).format('MM-DD-YYYY'),
+        endTime: moment(res.body[0].end_at).format('MM-DD-YYYY'),
         leagueName: res.body[0].league.name,
         serieName: res.body[0].serie.name
       };
@@ -38,8 +39,8 @@ const setup = () => {
       upcomingTournaments["dota2"] = {
         game: "Dota 2",
         tournamentName: res.body[0].name,
-        startTime: res.body[0].begin_at,
-        endTime: res.body[0].end_at,
+        startTime: moment(res.body[0].begin_at).format('MM-DD-YYYY'),
+        endTime: moment(res.body[0].end_at).format('MM-DD-YYYY'),
         leagueName: res.body[0].league.name,
         serieName: res.body[0].serie.name
       };
@@ -58,8 +59,8 @@ const setup = () => {
       upcomingTournaments["csgo"] = {
         game: "Counter-Strike: Global Offensive",
         tournamentName: res.body[0].name,
-        startTime: res.body[0].begin_at,
-        endTime: res.body[0].end_at,
+        startTime: moment(res.body[0].begin_at).format('MM-DD-YYYY'),
+        endTime: moment(res.body[0].end_at).format('MM-DD-YYYY'),
         leagueName: res.body[0].league.name,
         serieName: res.body[0].serie.name
       };
@@ -78,8 +79,8 @@ const setup = () => {
       upcomingTournaments["ow"] = {
         game: "Overwatch",
         tournamentName: res.body[0].name,
-        startTime: res.body[0].begin_at,
-        endTime: res.body[0].end_at,
+        startTime: moment(res.body[0].begin_at).format('MM-DD-YYYY'),
+        endTime: moment(res.body[0].end_at).format('MM-DD-YYYY'),
         leagueName: res.body[0].league.name,
         serieName: res.body[0].serie.name
       };
