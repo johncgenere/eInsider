@@ -3,9 +3,13 @@
  import lol from '../images/lol.jpg';
  import dota from '../images/dota.jpg';
  import csgo from '../images/CSGO.jpg';
- import '../styles/Home.css';
+ import owIcon from '../images/owIcon.png';
+ import lolIcon from '../images/lolIcon.png';
+ import dota2Icon from '../images/dota2icon.png';
+ import csgoIcon from '../images/csgoIcon.png';
  import axios from 'axios';
  import GameSchedule from './GameSchedule';
+ import '../styles/Home.css';
 
  let session = true;
 
@@ -123,33 +127,39 @@
                   <div className="ui divider"></div>
                   <div className="ui cards" style={{marginLeft: '27%', marginRight: '25%'}}>
                     <GameSchedule
-                     title={this.state.lol.game}
-                     tournament={this.state.lol.tournamentName}
-                     league={this.state.lol.leagueName}
-                     startTime={this.state.lol.startTime}
-                    />
-                    <GameSchedule
                       title={this.state.ow.game}
                       tournament={this.state.ow.tournamentName}
                       league={this.state.ow.leagueName}
                       startTime={this.state.ow.startTime}
+                      icon={owIcon}
+                    />
+                    <GameSchedule
+                     title={this.state.lol.game}
+                     tournament={this.state.lol.tournamentName}
+                     league={this.state.lol.leagueName}
+                     startTime={this.state.lol.startTime}
+                     icon={lolIcon}
                     />
                     <GameSchedule
                       title={this.state.dota2.game}
                       tournament={this.state.dota2.tournamentName}
                       league={this.state.dota2.leagueName}
                       startTime={this.state.dota2.startTime}
+                      icon={dota2Icon}
                     />
                     <GameSchedule
                       title={this.state.csgo.game}
                       tournament={this.state.csgo.tournamentName}
                       league={this.state.csgo.leagueName}
                       startTime={this.state.csgo.startTime}
+                      icon={csgoIcon}
                     />
                   </div>
                </div>
 
-              <div className="ui medium images">
+              <h3 style={{marginTop: '3%', textAlign: 'center'}}> Individual Games </h3>
+              <div className="ui divider"></div>
+              <div className="ui medium images" style={{marginTop: '0%'}}>
                 <img src={overwatch} alt="Overwatch" onClick={this.onOverwatchClick} />
                 <img src={lol} alt="League Of Legends" onClick={this.onLoLClick} />
                 <img src={dota} alt="Dota 2"onClick={this.onDotaClick} />

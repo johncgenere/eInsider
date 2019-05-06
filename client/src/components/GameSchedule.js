@@ -7,16 +7,19 @@ class GameSchedule extends React.Component {
 
   render(){
     return(
-      <div className="card">
+      <div className="card" style={{height: '40px'}}>
         <div className="ui comments">
           <div className="comment">
+            <a className="avatar">
+              <img src={this.props.icon} alt={this.props.title} style={{marginLeft: '15%'}}/>
+            </a>
             <div className="content">
-              <p className="author" style={{marginTop: '5%', textAlign: 'center'}}>{this.props.title}</p>
-              <div className="ui divider" style={{width: '100%', marginLeft: '0%'}}/>
-              <p style={{textAlign: 'center', marginBottom: '5%'}}>
+              <a className="author">{this.props.league}</a>
+              <div className="metadata">
+                <div className="date">@ some time</div>
+              </div>
+              <p>
                 Tournament: {this.props.tournament} <br />
-                League: {this.props.league}<br />
-                @ {this.props.startTime}<br />
               </p>
             </div>
           </div>
