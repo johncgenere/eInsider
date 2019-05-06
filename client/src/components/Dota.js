@@ -2,6 +2,8 @@ import React from 'react';
 import logo from '../images/dotalandscape.jpeg';
 import '../styles/Games.css';
 import axios from 'axios';
+import icon from '../images/dota2icon.png';
+import GameSchedule from './GameSchedule';
 
 class Dota extends React.Component {
   constructor(props){
@@ -12,13 +14,13 @@ class Dota extends React.Component {
     this.onUnfavoriteClick = this.onUnfavoriteClick.bind(this);
 
     this.state = {
-      schedule : {}
+      schedule : []
     }
 
     axios.get('http://localhost:7000/home/dota2')
     .then(res => {
       const dotaData = res.data;
-      this.setState({dotaData})
+      this.setState({schedule: dotaData})
     })
   }
 
@@ -52,6 +54,17 @@ class Dota extends React.Component {
   }
 
   render(){
+    let table = [];
+    for(var i = 0; i < this.state.schedule.length; i++){
+      table.push(<GameSchedule
+        title = {this.state.schedule[i].game}
+        tournament = {this.state.schedule[i].tournamentName}
+        league = {this.state.schedule[i].leagueName}
+        startTime = {this.state.schedule[i].startTime}
+        icon = {icon}
+      />)
+    }
+
     return(
       <div>
         <h1 style={{marginTop: '3%'}} onClick={this.onHomeClick}>eInsider</h1>
@@ -64,7 +77,9 @@ class Dota extends React.Component {
 
         <div className="ui piled segment">
           <h4 className="ui header">Schedule</h4>
-          <p>{JSON.stringify(this.state.dotaData)} </p>
+          <div className="ui cards" style={{marginLeft: '10%', marginRight: '0%'}}>
+            {table}
+          </div>
         </div>
       </div>
     );

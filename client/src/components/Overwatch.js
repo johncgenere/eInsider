@@ -1,6 +1,8 @@
 import React from 'react';
 import logo from '../images/overwatchlandscape.jpeg';
 import axios from 'axios';
+import GameSchedule from './GameSchedule';
+import icon from '../images/owIcon.png';
 
 class Overwatch extends React.Component {
   constructor(props){
@@ -11,13 +13,13 @@ class Overwatch extends React.Component {
     this.onUnfavoriteClick = this.onUnfavoriteClick.bind(this);
 
     this.state = {
-      schedule: {}
+      schedule: []
     }
 
     axios.get('http://localhost:7000/home/ow')
     .then(res => {
       const owData = res.data;
-      this.setState({owData})
+      this.setState({schedule: owData})
     })
   }
 
@@ -51,6 +53,17 @@ class Overwatch extends React.Component {
   }
 
   render(){
+    let table = [];
+    for(var i = 0; i < this.state.schedule.length; i++){
+      table.push(<GameSchedule
+        title = {this.state.schedule[i].game}
+        tournament = {this.state.schedule[i].tournamentName}
+        league = {this.state.schedule[i].leagueName}
+        startTime = {this.state.schedule[i].startTime}
+        icon = {icon}
+      />)
+    }
+
     return(
       <div>
         <h1 style={{marginTop: '3%'}} onClick={this.onHomeClick}>eInsider</h1>
@@ -63,7 +76,9 @@ class Overwatch extends React.Component {
 
         <div className="ui piled segment" >
           <h4 className="ui header">Schedule</h4>
-          <p>{JSON.stringify(this.state.owData)}</p>
+          <div className="ui cards" style={{marginLeft: '10%', marginRight: '0%'}}>
+            {table}
+          </div>
         </div>
       </div>
     );
