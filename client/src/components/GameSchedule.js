@@ -20,7 +20,7 @@ class GameSchedule extends React.Component {
             <div className="content">
               <a className="author">{this.props.league}</a>
               <div className="metadata">
-                <div className="date">@ some time</div>
+                <div className="date">@ {this.props.startTime}</div>
               </div>
               <p>
                 Tournament: {this.props.tournament} <br />
