@@ -1,7 +1,8 @@
 .login {
   margin-left: 35%;
   margin-right:35%;
-  margin-top: 16%;
+  margin-top: 13%;
+  height: 100vh
 }
 
 .ui.fluid.large.black.submit.button {
