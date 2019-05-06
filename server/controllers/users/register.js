@@ -84,11 +84,11 @@ const setup = (context) => {
     req.session.csgo = false;
     req.session.ow = false;
 
-    console.log('user inserted into the database!');
+    console.log("Sending back the following json:\n" + JSON.stringify(req.session, null, 2));
 
     res
     .status(201)
-    .send('user inserted into the database!')
+    .json(req.session);
   }
   
   return [
