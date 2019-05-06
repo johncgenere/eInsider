@@ -22,6 +22,24 @@ class SignUp extends React.Component {
     window.location.replace('/');
   }
 
+  onKeyPress = (event) => {
+    if(event.key === 'Enter'){
+      console.log("username: " + this.state.username);
+      console.log("password: " + this.state.password);
+
+      axios.post('http://localhost:7000/users/register', {
+        "username": this.state.username,
+        "password": this.state.password
+      }).then(response => {
+        console.log(response);
+        window.location.replace('/');
+      }).catch(error => {
+        console.log(error.response)
+        window.alert("This username exist already, try another one");
+      })
+    }
+  }
+
   handleSignUp = () => {
     console.log("username: " + this.state.username);
     console.log("password: " + this.state.password);
@@ -30,9 +48,11 @@ class SignUp extends React.Component {
       "username": this.state.username,
       "password": this.state.password
     }).then(response => {
-      console.log(response)
+      console.log(response);
+      window.location.replace('/');
     }).catch(error => {
       console.log(error.response)
+      window.alert("This username exist already, try another one");
     })
   }
 
@@ -46,7 +66,7 @@ class SignUp extends React.Component {
                 Register your account
               </div>
             </h2>
-            <form className="ui large form">
+            <form className="ui large form" onKeyPress={this.onKeyPress}>
               <div className="ui stacked segment">
                 <div className="field">
                   <div className="ui left icon input">

@@ -28,6 +28,24 @@ class Login extends React.Component {
     window.location.replace('/');
   }
 
+  onKeyPress = (event) => {
+    if(event.key === 'Enter'){
+      console.log("username: " + this.state.username);
+      console.log("password: " + this.state.password);
+
+      axios.post('http://localhost:7000/users/login', {
+        "username": this.state.username,
+        "password": this.state.password
+      }).then(response => {
+        console.log(response);
+        window.location.replace('/');
+      }).catch(error => {
+        console.log(error.response);
+        window.alert("Username or Password do not match our records");
+      })
+    }
+  }
+
   handleLogin = () => {
     console.log("username: " + this.state.username);
     console.log("password: " + this.state.password);
@@ -36,9 +54,11 @@ class Login extends React.Component {
       "username": this.state.username,
       "password": this.state.password
     }).then(response => {
-      console.log(response)
+      console.log(response);
+      window.location.replace('/');
     }).catch(error => {
-      console.log(error.response)
+      console.log(error.response);
+      window.alert("Username or Password do not match our records");
     })
   }
 
@@ -52,7 +72,7 @@ class Login extends React.Component {
                 Log-in to your account
               </div>
             </h2>
-            <form className="ui large form">
+            <form className="ui large form" onKeyPress={this.onKeyPress}>
               <div className="ui stacked segment">
                 <div className="field">
                   <div className="ui left icon input">
