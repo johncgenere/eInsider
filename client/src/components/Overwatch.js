@@ -66,7 +66,7 @@ class Overwatch extends React.Component {
 
     return(
       <div>
-        <h1 style={{marginTop: '3%'}} onClick={this.onHomeClick}>eInsider</h1>
+        <h1 className="title" style={{marginTop: '3%'}} onClick={this.onHomeClick}>eInsider</h1>
         <img src={logo} alt="Overwatch" />
         <div className="ui tiny buttons" >
           <button className="ui button black" onClick={this.onFavoriteClick}><i className="star icon" />Favorite</button>
