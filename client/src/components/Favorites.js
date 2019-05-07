@@ -25,8 +25,8 @@ class Favorites extends React.Component {
 
     axios.get('http://localhost:7000/users/profile')
     .then(res => {
-       const favorites = res.data;
-       this.setState({favs: favorites})
+       console.log(res);
+      //  this.setState({favs: favorites})
     }).catch(error => {
       console.log(error.response)
     })
@@ -81,10 +81,28 @@ class Favorites extends React.Component {
   }
 
   render(){
-    // let table = [];
-    // for(var i = 0; i < this.state.favs.length; i++){
-    //   table.push(<img src={overwatch} alt="Overwatch" onClick={this.onOverwatchClick} />)
-    // if else for all four options and then do the above so the img is not an issue
+    let table = [];
+    let res = localStorage.getItem('session');
+    let data = JSON.parse(res);
+    console.log(data['lol']);
+
+    if(data['overwatch'] !== true){
+      table.push(<img src={overwatch} alt="Overwatch" onClick={this.onOverwatchClick} />)
+    }
+    if(data['lol'] === true){
+      table.push(<img src={lol} alt="League of Legends" onClick={this.onLoLClick} />)
+    }
+    if(data['dota2'] !== true){
+      table.push(<img src={dota} alt="Dota 2" onClick={this.onDotaClick} />)
+    }
+    if(data['csgo'] !== true){
+      table.push(<img src={csgo} alt="Counter Strike:Global Strike" onClick={this.onCSGOClick} />)
+    }
+    //
+    // checkTable = () => {
+    //   if(table.length === 0)
+    //     return "No favorites yet!"
+    //   return table;
     // }
 
     return(
@@ -103,7 +121,9 @@ class Favorites extends React.Component {
         <div>
           <h3 style={{marginTop: '3%', textAlign: 'center'}}> Your Favorites </h3>
           <div className="ui divider"></div>
-          <p style={{textAlign: 'center'}}> {JSON.stringify(this.state.favs)} </p>
+          <div className="ui medium images" style={{marginTop: '0%'}}>
+            {table}
+          </div>
         </div>
       </div>
     );

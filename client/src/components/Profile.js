@@ -91,6 +91,24 @@ class Profile extends React.Component {
   }
 
   render(){
+    let table = [];
+    let res = localStorage.getItem('session');
+    let data = JSON.parse(res);
+    let username = data['username'];
+
+    if(data['overwatch'] !== true){
+      table.push(<img src={overwatch} alt="Overwatch" onClick={this.onOverwatchClick} />)
+    }
+    if(data['lol'] === true){
+      table.push(<img src={lol} alt="League of Legends" onClick={this.onLoLClick} />)
+    }
+    if(data['dota2'] !== true){
+      table.push(<img src={dota} alt="Dota 2" onClick={this.onDotaClick} />)
+    }
+    if(data['csgo'] !== true){
+      table.push(<img src={csgo} alt="Counter Strike:Global Strike" onClick={this.onCSGOClick} />)
+    }
+
     return (
             <div>
                 <h1 style={{textAlign: 'center', marginTop: '3%'}}>eInsider</h1>
@@ -107,13 +125,15 @@ class Profile extends React.Component {
                 <div>
                   <h3 style={{marginTop: '3%', textAlign: 'center'}}> Your Information </h3>
                   <div className="ui divider"></div>
-                  <p style={{textAlign: 'center'}}> {JSON.stringify(this.state.profile)} </p>
+                  <p style={{textAlign: 'center'}}> Your Username: {username} </p>
                 </div>
 
                 <div>
                    <h3 style={{marginTop: '3%', textAlign: 'center'}}> Your Favorites </h3>
                    <div className="ui divider"></div>
-                   <p style={{textAlign: 'center'}}> {JSON.stringify(this.state.favorites)} </p>
+                   <div className="ui medium images" style={{marginTop: '0%'}}>
+                     {table}
+                   </div>
                 </div>
             </div>
         );
