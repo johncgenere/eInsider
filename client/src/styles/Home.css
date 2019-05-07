@@ -18,6 +18,10 @@
    margin-top: 3%;
  }
 
+ .ui.medium.images:hover {
+   cursor: pointer;
+ }
+
  img {
    border-radius: 10px;
  }
