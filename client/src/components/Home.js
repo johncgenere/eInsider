@@ -35,7 +35,7 @@
       csgo: {}
     }
 
-    axios.get('http://localhost:7000/home')
+    axios.get('https://einsider-backend.herokuapp.com/home')
     .then(res => {
        const schedule = res.data;
        this.setState({
@@ -72,7 +72,7 @@
      localStorage.clear();
      this.forceUpdate();
 
-     axios.delete('http://localhost:7000/users/logout')
+     axios.delete('https://einsider-backend.herokuapp.com/users/logout')
      .then(response => {
        console.log(response)
      }).catch(error => {

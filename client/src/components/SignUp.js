@@ -29,7 +29,7 @@ class SignUp extends React.Component {
       console.log("username: " + this.state.username);
       console.log("password: " + this.state.password);
 
-      axios.post('http://localhost:7000/users/register', {
+      axios.post('https://einsider-backend.herokuapp.com/users/register', {
         "username": this.state.username,
         "password": this.state.password
       }).then(response => {
@@ -48,7 +48,7 @@ class SignUp extends React.Component {
     console.log("username: " + this.state.username);
     console.log("password: " + this.state.password);
 
-    axios.post('http://localhost:7000/users/register', {
+    axios.post('https://einsider-backend.herokuapp.com/users/register', {
       "username": this.state.username,
       "password": this.state.password
     }).then(response => {

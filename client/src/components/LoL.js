@@ -19,7 +19,7 @@ class LoL extends React.Component {
       schedule: []
     }
 
-    axios.get('http://localhost:7000/home/lol')
+    axios.get('https://einsider-backend.herokuapp.com/home/lol')
     .then(res => {
       const lolData = res.data;
       this.setState({schedule: lolData})
@@ -38,7 +38,7 @@ class LoL extends React.Component {
     data["lol"] = true;
     localStorage.setItem('session', JSON.stringify(data));
 
-    axios.post('http://localhost:7000/users/favorites', {
+    axios.post('https://einsider-backend.herokuapp.com/users/favorites', {
       "lol": true
     }).then(response => {
       console.log(response)
@@ -54,7 +54,7 @@ class LoL extends React.Component {
     data["lol"] = false;
     localStorage.setItem('session', JSON.stringify(data));
 
-    axios.post('http://localhost:7000/users/favorites', {
+    axios.post('https://einsider-backend.herokuapp.com/users/favorites', {
       "lol": false
     }).then(response => {
       console.log(response)

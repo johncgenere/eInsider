@@ -19,7 +19,7 @@ class Dota extends React.Component {
       schedule : []
     }
 
-    axios.get('http://localhost:7000/home/dota2')
+    axios.get('https://einsider-backend.herokuapp.com/home/dota2')
     .then(res => {
       const dotaData = res.data;
       this.setState({schedule: dotaData})
@@ -38,7 +38,7 @@ class Dota extends React.Component {
     data["dota2"] = true;
     localStorage.setItem('session', JSON.stringify(data));
 
-    axios.post('http://localhost:7000/users/favorites', {
+    axios.post('https://einsider-backend.herokuapp.com/users/favorites', {
       "dota2": true
     }).then(response => {
       console.log(response)
@@ -54,7 +54,7 @@ class Dota extends React.Component {
     data["dota2"] = false;
     localStorage.setItem('session', JSON.stringify(data));
 
-    axios.post('http://localhost:7000/users/favorites', {
+    axios.post('https://einsider-backend.herokuapp.com/users/favorites', {
       "dota2": false
     }).then(response => {
       console.log(response)
