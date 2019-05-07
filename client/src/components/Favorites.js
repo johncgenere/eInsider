@@ -84,18 +84,18 @@ class Favorites extends React.Component {
     let table = [];
     let res = localStorage.getItem('session');
     let data = JSON.parse(res);
-    console.log(data['lol']);
+    console.log(data['ow']);
 
-    if(data['overwatch'] !== true){
+    if(data['ow'] === true){
       table.push(<img src={overwatch} alt="Overwatch" onClick={this.onOverwatchClick} />)
     }
     if(data['lol'] === true){
       table.push(<img src={lol} alt="League of Legends" onClick={this.onLoLClick} />)
     }
-    if(data['dota2'] !== true){
+    if(data['dota2'] === true){
       table.push(<img src={dota} alt="Dota 2" onClick={this.onDotaClick} />)
     }
-    if(data['csgo'] !== true){
+    if(data['csgo'] === true){
       table.push(<img src={csgo} alt="Counter Strike:Global Strike" onClick={this.onCSGOClick} />)
     }
     //
@@ -104,6 +104,7 @@ class Favorites extends React.Component {
     //     return "No favorites yet!"
     //   return table;
     // }
+    console.log(table);
 
     return(
       <div>

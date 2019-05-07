@@ -96,7 +96,7 @@ class Profile extends React.Component {
     let data = JSON.parse(res);
     let username = data['username'];
 
-    if(data['overwatch'] !== true){
+    if(data['ow'] !== true){
       table.push(<img src={overwatch} alt="Overwatch" onClick={this.onOverwatchClick} />)
     }
     if(data['lol'] === true){

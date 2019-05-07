@@ -31,6 +31,10 @@ class CSGO extends React.Component {
 
   onFavoriteClick = (event) => {
     console.log('fav');
+    let res = localStorage.getItem('session');
+    let data = JSON.parse(res);
+    data["csgo"] = true;
+    localStorage.setItem('session', JSON.stringify(data));
 
     axios.post('http://localhost:7000/users/favorites', {
       "csgo": true
@@ -43,6 +47,10 @@ class CSGO extends React.Component {
 
   onUnfavoriteClick = (event) => {
     console.log('unfav');
+    let res = localStorage.getItem('session');
+    let data = JSON.parse(res);
+    data["csgo"] = false;
+    localStorage.setItem('session', JSON.stringify(data));
 
     axios.post('http://localhost:7000/users/favorites', {
       "csgo": false
