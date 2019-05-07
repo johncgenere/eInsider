@@ -7,6 +7,8 @@ class SignUp extends React.Component {
     super(props);
 
     this.onHomeClick = this.onHomeClick.bind(this);
+
+    axios.defaults.withCredentials = true
   }
 
   handleUsernameInput = (e) => {

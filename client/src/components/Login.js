@@ -8,6 +8,9 @@ class Login extends React.Component {
 
     this.onSignUpClick = this.onSignUpClick.bind(this);
     this.onHomeClick  = this.onHomeClick.bind(this);
+    
+    axios.defaults.withCredentials = true
+
   }
 
   handleUsernameInput = (e) => {

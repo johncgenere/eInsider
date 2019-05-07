@@ -19,6 +19,8 @@ class Profile extends React.Component {
     this.onCSGOClick = this.onCSGOClick.bind(this);
     this.onLogoutClick = this.onLogoutClick.bind(this);
 
+    axios.defaults.withCredentials = true
+
     this.state  = {
       username : "",
       favorites : []

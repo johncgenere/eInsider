@@ -12,6 +12,8 @@ class Home extends React.Component {
     this.onFavoritesClick = this.onFavoritesClick.bind(this);
     this.onLogoutClick = this.onLogoutClick.bind(this);
 
+    axios.defaults.withCredentials = true
+
     this.state = {
       players : []
     }

@@ -13,6 +13,8 @@ class Dota extends React.Component {
     this.onFavoriteClick = this.onFavoriteClick.bind(this);
     this.onUnfavoriteClick = this.onUnfavoriteClick.bind(this);
 
+    axios.defaults.withCredentials = true
+
     this.state = {
       schedule : []
     }

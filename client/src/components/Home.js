@@ -25,7 +25,9 @@
      this.onDotaClick = this.onDotaClick.bind(this);
      this.onCSGOClick = this.onCSGOClick.bind(this);
 
-    this.state = {
+     axios.defaults.withCredentials = true
+
+     this.state = {
       schedule : {},
       lol: {},
       ow: {},
