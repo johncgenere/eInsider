@@ -96,16 +96,16 @@ class Profile extends React.Component {
     let data = JSON.parse(res);
     let username = data['username'];
 
-    if(data['ow'] !== true){
+    if(data['ow'] === true){
       table.push(<img src={overwatch} alt="Overwatch" onClick={this.onOverwatchClick} />)
     }
     if(data['lol'] === true){
       table.push(<img src={lol} alt="League of Legends" onClick={this.onLoLClick} />)
     }
-    if(data['dota2'] !== true){
+    if(data['dota2'] === true){
       table.push(<img src={dota} alt="Dota 2" onClick={this.onDotaClick} />)
     }
-    if(data['csgo'] !== true){
+    if(data['csgo'] === true){
       table.push(<img src={csgo} alt="Counter Strike:Global Strike" onClick={this.onCSGOClick} />)
     }
 
