@@ -25,7 +25,7 @@ class Profile extends React.Component {
       username : "",
       favorites : []
     }
-    axios.get('http://localhost:7000/users/profile')
+    axios.get('https://einsider-backend.herokuapp.com/users/profile')
     .then(res => {
        const profile = res.data;
        this.setState({profile})
@@ -34,7 +34,7 @@ class Profile extends React.Component {
       console.log(error.response)
     })
 
-    axios.get('http://localhost:7000/users/profile')
+    axios.get('https://einsider-backend.herokuapp.com/users/profile')
     .then(res => {
        const favorites = res.data;
        this.setState({favorites})
@@ -82,7 +82,7 @@ class Profile extends React.Component {
   onLogoutClick = (event) => {
     localStorage.clear();
 
-    axios.delete('http://localhost:7000/users/logout')
+    axios.delete('https://einsider-backend.herokuapp.com/users/logout')
     .then(response => {
       console.log(response)
     }).catch(error => {

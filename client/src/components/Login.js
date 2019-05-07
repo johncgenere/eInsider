@@ -8,7 +8,7 @@ class Login extends React.Component {
 
     this.onSignUpClick = this.onSignUpClick.bind(this);
     this.onHomeClick  = this.onHomeClick.bind(this);
-    
+
     axios.defaults.withCredentials = true
 
   }
@@ -36,7 +36,7 @@ class Login extends React.Component {
       console.log("username: " + this.state.username);
       console.log("password: " + this.state.password);
 
-      axios.post('http://localhost:7000/users/login', {
+      axios.post('https://einsider-backend.herokuapp.com/users/login', {
         "username": this.state.username,
         "password": this.state.password
       }).then(response => {
@@ -55,7 +55,7 @@ class Login extends React.Component {
     console.log("username: " + this.state.username);
     console.log("password: " + this.state.password);
 
-    axios.post('http://localhost:7000/users/login', {
+    axios.post('https://einsider-backend.herokuapp.com/users/login', {
       "username": this.state.username,
       "password": this.state.password
     }).then(response => {

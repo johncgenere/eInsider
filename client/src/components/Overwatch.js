@@ -18,7 +18,7 @@ class Overwatch extends React.Component {
       schedule: []
     }
 
-    axios.get('http://localhost:7000/home/ow')
+    axios.get('https://einsider-backend.herokuapp.com/home/ow')
     .then(res => {
       const owData = res.data;
       this.setState({schedule: owData})
@@ -37,7 +37,7 @@ class Overwatch extends React.Component {
     data["ow"] = true;
     localStorage.setItem('session', JSON.stringify(data));
 
-    axios.post('http://localhost:7000/users/favorites', {
+    axios.post('https://einsider-backend.herokuapp.com/users/favorites', {
       "ow": true
     }).then(response => {
       console.log(response)
@@ -53,7 +53,7 @@ class Overwatch extends React.Component {
     data['ow'] = false;
     localStorage.setItem('session', JSON.stringify(data));
 
-    axios.post('http://localhost:7000/users/favorites', {
+    axios.post('https://einsider-backend.herokuapp.com/users/favorites', {
       "ow": false
     }).then(response => {
       console.log(response)

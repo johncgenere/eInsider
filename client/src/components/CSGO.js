@@ -19,7 +19,7 @@ class CSGO extends React.Component {
       schedule : []
     }
 
-    axios.get('http://localhost:7000/home/csgo')
+    axios.get('https://einsider-backend.herokuapp.com/home/csgo')
     .then(res => {
       const csgoData = res.data;
       this.setState({schedule: csgoData})
@@ -38,7 +38,7 @@ class CSGO extends React.Component {
     data["csgo"] = true;
     localStorage.setItem('session', JSON.stringify(data));
 
-    axios.post('http://localhost:7000/users/favorites', {
+    axios.post('https://einsider-backend.herokuapp.com/users/favorites', {
       "csgo": true
     }).then(response => {
       console.log(response)
@@ -54,7 +54,7 @@ class CSGO extends React.Component {
     data["csgo"] = false;
     localStorage.setItem('session', JSON.stringify(data));
 
-    axios.post('http://localhost:7000/users/favorites', {
+    axios.post('https://einsider-backend.herokuapp.com/users/favorites', {
       "csgo": false
     }).then(response => {
       console.log(response)
