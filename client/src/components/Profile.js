@@ -17,6 +17,7 @@ class Profile extends React.Component {
     this.onOverwatchClick = this.onOverwatchClick.bind(this);
     this.onDotaClick = this.onDotaClick.bind(this);
     this.onCSGOClick = this.onCSGOClick.bind(this);
+    this.onLogoutClick = this.onLogoutClick.bind(this);
 
     this.state  = {
       username : "",
@@ -76,6 +77,18 @@ class Profile extends React.Component {
     window.location.replace('/csgo');
   }
 
+  onLogoutClick = (event) => {
+    localStorage.clear();
+
+    axios.delete('http://localhost:7000/users/logout')
+    .then(response => {
+      console.log(response)
+    }).catch(error => {
+      console.log(error.response)
+    })
+
+    window.location.replace('/');
+  }
 
   render(){
     return (
@@ -87,7 +100,7 @@ class Profile extends React.Component {
                     <a className="item" onClick={this.onFantasyClick} href="/fantasy">Fantasy</a>
                     <a className="item active" href="/profile">Profile</a>
                     <div className="right menu">
-                        <a className="ui item" onClick={this.onHomeClick}>Logout</a>
+                        <a className="ui item" onClick={this.onLogoutClick} href="/">Logout</a>
                     </div>
                 </div>
 

@@ -11,8 +11,6 @@
  import GameSchedule from './GameSchedule';
  import '../styles/Home.css';
 
- let session = true;
-
  class Home extends React.Component {
    constructor(props){
      super(props);
@@ -69,7 +67,7 @@
    }
 
    onLogoutClick = (event) => {
-     session = false;
+     localStorage.clear();
      this.forceUpdate();
 
      axios.delete('http://localhost:7000/users/logout')
@@ -81,7 +79,7 @@
    }
 
    checkIfInSession = () => {
-     if(session)
+     if(localStorage.getItem('session') !== null)
        return true;
      return false;
    }
@@ -107,10 +105,12 @@
    }
 
    render(){
-
+     let value = localStorage.getItem('session');
+     let thing = JSON.parse(value);
      if(this.checkIfInSession()){
        return (
            <div>
+              {console.log(thing.cookie)}
                <h1 style={{marginTop: '3%'}}>eInsider</h1>
                <div className="ui secondary menu">
                    <a className="item active" href="/">Home</a>

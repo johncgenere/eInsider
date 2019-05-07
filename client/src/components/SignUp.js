@@ -31,10 +31,12 @@ class SignUp extends React.Component {
         "username": this.state.username,
         "password": this.state.password
       }).then(response => {
-        console.log(response);
+        let session = response.data;
+        console.log(session.cookie);
+        localStorage.setItem('session', JSON.stringify(response.data));
         window.location.replace('/');
       }).catch(error => {
-        console.log(error.response)
+        console.log(error.response);
         window.alert("This username exist already, try another one");
       })
     }
@@ -48,7 +50,9 @@ class SignUp extends React.Component {
       "username": this.state.username,
       "password": this.state.password
     }).then(response => {
-      console.log(response);
+      let session = response.data;
+      console.log(session.cookie);
+      localStorage.setItem('session', JSON.stringify(response.data));
       window.location.replace('/');
     }).catch(error => {
       console.log(error.response)

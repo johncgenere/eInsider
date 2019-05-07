@@ -17,6 +17,7 @@ class Favorites extends React.Component {
     this.onOverwatchClick = this.onOverwatchClick.bind(this);
     this.onDotaClick = this.onDotaClick.bind(this);
     this.onCSGOClick = this.onCSGOClick.bind(this);
+    this.onLogoutClick = this.onLogoutClick.bind(this);
 
     this.state = {
       favs : {}
@@ -66,15 +67,24 @@ class Favorites extends React.Component {
     window.location.replace('/csgo');
   }
 
-  // onLogoutClick = (event) => {
-  //   session = false;
-  //   this.forceUpdate();
-  // }
+  onLogoutClick = (event) => {
+    localStorage.clear();
+
+    axios.delete('http://localhost:7000/users/logout')
+    .then(response => {
+      console.log(response)
+    }).catch(error => {
+      console.log(error.response)
+    })
+
+    window.location.replace('/');
+  }
 
   render(){
     // let table = [];
     // for(var i = 0; i < this.state.favs.length; i++){
     //   table.push(<img src={overwatch} alt="Overwatch" onClick={this.onOverwatchClick} />)
+    // if else for all four options and then do the above so the img is not an issue
     // }
 
     return(
@@ -86,7 +96,7 @@ class Favorites extends React.Component {
             <a className="item" onClick={this.onFantasyClick} href="/fantasy">Fantasy</a>
             <a className="item" onClick={this.onProfileClick} href="/profile">Profile</a>
             <div className="right menu">
-                <a className="ui item" href="/">Logout</a>
+                <a className="ui item" onClick={this.onLogoutClick} href="/">Logout</a>
             </div>
         </div>
 
