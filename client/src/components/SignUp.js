@@ -8,6 +8,11 @@ class SignUp extends React.Component {
 
     this.onHomeClick = this.onHomeClick.bind(this);
 
+    this.state = {
+      username: "",
+      password: ""
+    }
+
     axios.defaults.withCredentials = true
   }
 
@@ -39,7 +44,7 @@ class SignUp extends React.Component {
         window.location.replace('/');
       }).catch(error => {
         console.log(error.response);
-        window.alert("This username exist already, try another one");
+        window.alert("This username exist already or is INVALID, try another one");
       })
     }
   }
@@ -58,7 +63,7 @@ class SignUp extends React.Component {
       window.location.replace('/');
     }).catch(error => {
       console.log(error.response)
-      window.alert("This username exist already, try another one");
+      window.alert("This username exist already or is INVALID, try another one");
     })
   }
 
