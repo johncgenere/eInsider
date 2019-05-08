@@ -95,7 +95,7 @@ class Favorites extends React.Component {
     console.log(table);
 
     return(
-      <div className="back" style={{height: '100%'}}>
+      <div className="back" style={{height: '100vh'}}>
         <br />
         <h1 style={{textAlign: 'center'}}>eInsider</h1>
         <div className="ui secondary menu">
