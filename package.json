@@ -25,7 +25,7 @@
   },
   "scripts": {
     "backend": "nodemon server/app.js",
-    "start": "node client/src/index/js"
+    "start": "node client/src/index.js"
   },
   "eslintConfig": {
     "extends": "react-app"
