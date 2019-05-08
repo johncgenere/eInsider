@@ -15,7 +15,7 @@ class PointSystem extends React.Component {
 
   render(){
     return(
-      <div className="back">
+      <div className="back" style={{height: '100%'}}>
       <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
         <div className="text">
           <h1 className="title" onClick={this.onNameClick}>eInsider</h1>
@@ -23,7 +23,7 @@ class PointSystem extends React.Component {
           <p>
             You can get points from the stats from the players you have selected
             to be on your team. The total number of points that you will see everyday
-            will be an accumaltion of all the players on your team. These points will
+            will be an accumulation of all the players on your team. These points will
             reset everyday.
           </p>
           <h2>How Are Points Given?</h2>

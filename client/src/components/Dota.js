@@ -85,8 +85,9 @@ class Dota extends React.Component {
     }
 
     return(
-      <div className="back">
-        <h1 className="title" style={{marginTop: '3%'}} onClick={this.onHomeClick}>eInsider</h1>
+      <div className="back" style={{height: '100%'}}>
+      <br />
+        <h1 className="title" onClick={this.onHomeClick}>eInsider</h1>
         <img src={logo} alt="Dota 2"/>
         {favs}
 
