@@ -24,7 +24,8 @@
     "superagent": "^5.0.4"
   },
   "scripts": {
-    "backend": "nodemon server/app.js"
+    "backend": "nodemon server/app.js",
+    "start": "node client/src/index/js"
   },
   "eslintConfig": {
     "extends": "react-app"
