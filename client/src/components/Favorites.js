@@ -96,7 +96,8 @@ class Favorites extends React.Component {
 
     return(
       <div className="back">
-        <h1 style={{textAlign: 'center', marginTop: '3%'}}>eInsider</h1>
+        <br />
+        <h1 style={{textAlign: 'center'}}>eInsider</h1>
         <div className="ui secondary menu">
             <a className="item" onClick={this.onHomeClick} href="/">Home</a>
             <a className="item active" href="/favorites">Favorites</a>
