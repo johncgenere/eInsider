@@ -111,7 +111,7 @@
      let thing = JSON.parse(value);
      if(this.checkIfInSession()){
        return (
-           <div className="back">
+           <div className="back" style={{height: '100%'}}>
                <br />
                <h1>eInsider</h1>
                <div className="ui secondary menu">
@@ -171,7 +171,7 @@
        );
      } else {
          return (
-             <div className="back">
+             <div className="back" style={{height: '100%'}}>
                  <br />
                  <h1>eInsider</h1>
                  <div className="ui secondary menu">

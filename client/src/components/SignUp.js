@@ -69,7 +69,7 @@ class SignUp extends React.Component {
 
   render(){
     return(
-      <div className="signup">
+      <div className="signup" style={{height: '100%'}}>
         <div className="ui middle aligned center aligned grid">
           <div className="column">
             <h2 className="ui black image header">

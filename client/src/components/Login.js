@@ -77,7 +77,7 @@ class Login extends React.Component {
 
   render(){
     return(
-      <div className="login">
+      <div className="login" style={{height: '100%'}}>
         <div className="ui middle aligned center aligned grid">
           <div className="column">
             <h2 className="ui black image header">
