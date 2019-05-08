@@ -84,7 +84,7 @@ class Overwatch extends React.Component {
     }
 
     return(
-      <div className="back" style={{height: '100%'}}>
+      <div className="back" style={{height: '100vh'}}>
       <br />
         <h1 className="title" onClick={this.onHomeClick}>eInsider</h1>
         <img src={logo} alt="Overwatch" />

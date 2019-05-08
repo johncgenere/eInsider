@@ -56,7 +56,7 @@ class Home extends React.Component {
           />)
         }
         return (
-          <div className="back" style={{height: '100%'}}>
+          <div className="back" style={{height: '100vh'}}>
               <br />
               <h1>eInsider</h1>
               <div className="ui secondary menu" style={{width: '50%', marginLeft: '26%'}}>
