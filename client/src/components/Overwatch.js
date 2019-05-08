@@ -84,7 +84,7 @@ class Overwatch extends React.Component {
     }
 
     return(
-      <div>
+      <div className="back">
         <h1 className="title" style={{marginTop: '3%'}} onClick={this.onHomeClick}>eInsider</h1>
         <img src={logo} alt="Overwatch" />
         {favs}

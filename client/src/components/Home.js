@@ -111,9 +111,9 @@
      let thing = JSON.parse(value);
      if(this.checkIfInSession()){
        return (
-           <div>
-              {console.log(thing.cookie)}
-               <h1 style={{marginTop: '3%'}}>eInsider</h1>
+           <div className="back">
+               <br />
+               <h1>eInsider</h1>
                <div className="ui secondary menu">
                    <a className="item active" href="/">Home</a>
                    <a className="item" onClick={this.onFavoritesClick} href="/favorites">Favorites</a>
@@ -171,8 +171,9 @@
        );
      } else {
          return (
-             <div>
-                 <h1 style={{marginTop: '3%'}}>eInsider</h1>
+             <div className="back">
+                 <br />
+                 <h1>eInsider</h1>
                  <div className="ui secondary menu">
                      <a className="item active" href="/">Home</a>
                      <div className="right menu">
