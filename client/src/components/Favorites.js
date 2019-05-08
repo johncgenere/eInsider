@@ -17,7 +17,6 @@ class Favorites extends React.Component {
     this.onOverwatchClick = this.onOverwatchClick.bind(this);
     this.onDotaClick = this.onDotaClick.bind(this);
     this.onCSGOClick = this.onCSGOClick.bind(this);
-    this.onLogoutClick = this.onLogoutClick.bind(this);
 
     axios.defaults.withCredentials = true
 
@@ -69,19 +68,6 @@ class Favorites extends React.Component {
     window.location.replace('/csgo');
   }
 
-  onLogoutClick = (event) => {
-    localStorage.clear();
-
-    axios.delete('https://einsider-backend.herokuapp.com/users/logout')
-    .then(response => {
-      console.log(response)
-    }).catch(error => {
-      console.log(error.response)
-    })
-
-    window.location.replace('/');
-  }
-
   render(){
     let table = [];
     let res = localStorage.getItem('session');
@@ -116,9 +102,6 @@ class Favorites extends React.Component {
             <a className="item active" href="/favorites">Favorites</a>
             <a className="item" onClick={this.onFantasyClick} href="/fantasy">Fantasy</a>
             <a className="item" onClick={this.onProfileClick} href="/profile">Profile</a>
-            <div className="right menu">
-                <a className="ui item" onClick={this.onLogoutClick} href="/">Logout</a>
-            </div>
         </div>
 
         <div>

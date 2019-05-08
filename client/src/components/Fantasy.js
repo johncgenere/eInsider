@@ -10,7 +10,6 @@ class Home extends React.Component {
     this.onProfileClick = this.onProfileClick.bind(this);
     this.onPointSystemClick = this.onPointSystemClick.bind(this);
     this.onFavoritesClick = this.onFavoritesClick.bind(this);
-    this.onLogoutClick = this.onLogoutClick.bind(this);
 
     axios.defaults.withCredentials = true
 
@@ -46,19 +45,6 @@ class Home extends React.Component {
     window.location.replace('./pointsystem');
   }
 
-  onLogoutClick = (event) => {
-    localStorage.clear();
-
-    axios.delete('https://einsider-backend.herokuapp.com/users/logout')
-    .then(response => {
-      console.log(response)
-    }).catch(error => {
-      console.log(error.response)
-    })
-
-    window.location.replace('/');
-  }
-
   render(){
         let table = [];
         for(var i = 0; i < this.state.players.length; i++){
@@ -77,9 +63,6 @@ class Home extends React.Component {
                   <a className="item" onClick={this.onFavoritesClick} href="/favorites">Favorites</a>
                   <a className="item active" href="/">Fantasy</a>
                   <a className="item" onClick={this.onProfileClick} href="/profile">Profile</a>
-                  <div className="right menu">
-                      <a className="ui item" onClick={this.onLogoutClick} href="/">Logout</a>
-                  </div>
               </div>
 
               <div>
