@@ -7,3 +7,8 @@
   margin-left: 26%;
   margin-right: 25%;
 }
+
+.back {
+  height: 100%;
+  background-image: linear-gradient(to right, grey, white, white, white, grey);
+}
