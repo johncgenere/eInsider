@@ -64,6 +64,7 @@ class Overwatch extends React.Component {
 
   render(){
     let table = [];
+    let favs = [];
     for(var i = 0; i < this.state.schedule.length; i++){
       table.push(<GameSchedule
         title = {this.state.schedule[i].game}
@@ -74,15 +75,19 @@ class Overwatch extends React.Component {
       />)
     }
 
+    if(localStorage.getItem('session') !== null){
+      favs.push(<div className="ui tiny buttons">
+                  <button className="ui button black" onClick={this.onFavoriteClick}><i className="star icon" />Favorite</button>
+                  <div className="or"></div>
+                  <button className="ui button" onClick={this.onUnfavoriteClick}><i className="star outline icon" />Unfavorite</button>
+                </div>)
+    }
+
     return(
       <div>
         <h1 className="title" style={{marginTop: '3%'}} onClick={this.onHomeClick}>eInsider</h1>
         <img src={logo} alt="Overwatch" />
-        <div className="ui tiny buttons" >
-          <button className="ui button black" onClick={this.onFavoriteClick}><i className="star icon" />Favorite</button>
-          <div className="or"></div>
-          <button className="ui button" onClick={this.onUnfavoriteClick}><i className="star outline icon" />Unfavorite</button>
-        </div>
+        {favs}
 
         <div className="ui piled segment" >
           <h4 className="ui header">Schedule</h4>
